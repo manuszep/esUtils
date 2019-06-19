@@ -12,7 +12,7 @@ export const throttle = (fn: Function, threshhold: number, scope: any) => {
     if (last && now < last + threshhold) {
       clearTimeout(deferTimer);
 
-      deferTimer = setTimeout(function () {
+      deferTimer = window.setTimeout(function () {
         last = now;
         fn.apply(context, args);
       }, threshhold);
@@ -22,3 +22,12 @@ export const throttle = (fn: Function, threshhold: number, scope: any) => {
     }
   };
 }
+
+export const requestAnimFrame = (): Function => {
+  return window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    (window as any).mozRequestAnimationFrame ||
+    function (callback: Function) {
+      window.setTimeout(callback, 1000 / 60);
+    };
+};
