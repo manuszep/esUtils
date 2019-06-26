@@ -32,3 +32,10 @@ export const scrollTo = (speed = 100, scrollTargetY = 0) => {
   // call it once to get started
   tick();
 }
+
+export const shouldShowIf = (condition: boolean): { "hidden"?: boolean } => {
+  if (!condition) {
+    return { "hidden": true };
+  }
+  return {};
+}
