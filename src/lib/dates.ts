@@ -1,11 +1,10 @@
-import * as moment from "moment";
+import moment from "moment";
 
 export const parseDate = (date: string): moment.Moment => {
   if (!date) return moment();
   const convertedDate = date.replace(/\//g, "-") || ""; // dashes are not a supported isoFormat and throws moment warning
   return moment(convertedDate, "DD-MM-YYYY");
 }
-
 
 export const getCurrentDate = (): moment.Moment => {
   return moment();

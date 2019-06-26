@@ -1,26 +1,19 @@
 import { patternPhone, patternPhoneMobile } from "./regex";
+import { KeyedObject } from "./types";
 
 export const PHONE_FIXED = 'PHONE_FIXED';
 export const PHONE_MOBILE = 'PHONE_MOBILE';
 
-export const parseTranslationMaps = (translationMap: any): any => {
-  let parsedMap = translationMap;
-
-  if (typeof translationMap === "string") {
-    parsedMap = parsedMap.replace(/`/gm, '"');
-    parsedMap = parsedMap.replace(/(\r\n|\n|\r)/gm, "");
-    parsedMap = parsedMap.replace(/,([^,]*)$/, '$1');
-    parsedMap = JSON.parse(parsedMap);
-  }
-
-  return parsedMap;
-}
-
 export const parseStringTemplate = (
   str: string,
-  replacements: {[key: string]: string}
+  replacements: KeyedObject<string>
 ): string => {
-  return str.replace(/%\w+%/g, (all) => {
+  if (typeof str === "undefined" ||
+    str === null ||
+    str === "" ||
+    typeof replacements === "undefined" ||
+    Object.keys(replacements).length === 0) return str;
+  return str.replace(/%%\w+%%/g, (all) => {
     return all in replacements ? replacements[all] : all;
   });
 }
@@ -192,7 +185,7 @@ export const phoneTransform = (phone: string): string | null => {
 };
 
 export const getOptionLabelFromValue = (
-  options: Array<{[key: string]: string}>,
+  options: Array<KeyedObject<string>>,
   value: string
 ): string => {
   let i = 0;
