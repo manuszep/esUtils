@@ -1,4 +1,4 @@
-export const throttle = (fn: Function, threshhold: number, scope: any) => {
+export const throttle = (fn: Function, threshhold: number, scope: any): Function => {
   let last: number;
   let deferTimer: number;
 

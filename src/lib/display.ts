@@ -1,6 +1,6 @@
 import { requestAnimFrame } from "./performance";
 
-export const scrollTo = (speed = 100, scrollTargetY = 0) => {
+export const scrollTo = (speed = 100, scrollTargetY = 0): void => {
   const scrollY = window.scrollY || document.documentElement.scrollTop;
   let currentTime = 0;
 
@@ -14,7 +14,7 @@ export const scrollTo = (speed = 100, scrollTargetY = 0) => {
   };
 
   // add animation loop
-  function tick() {
+  function tick(): void {
     currentTime += 1 / 60;
 
     const p = currentTime / time;

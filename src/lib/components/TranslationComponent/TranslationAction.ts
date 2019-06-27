@@ -1,7 +1,7 @@
 import { Dispatch } from "react";
 import { fetchTranslations } from "./TranslationUtils";
 
-import { KeyedObject } from "../types";
+import { KeyedObject } from "../../types";
 
 export const SET_LABELS = "SET_LABELS";
 export const SWITCH_LANG = "SWITCH_LANG";

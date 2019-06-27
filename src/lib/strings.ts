@@ -48,7 +48,7 @@ export const composeFullAddress = (
   postalCode: number | string,
   city: string,
   oneLine: boolean
-) => {
+): string => {
   const separator = oneLine ? ", " : ",<br />";
 
   const fullStreet = composeStreetAddress(street, streetNr, postalBoxText, boxNr);
@@ -197,4 +197,14 @@ export const getOptionLabelFromValue = (
   }
 
   return value;
+}
+
+export const getGuid = (): string => {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+
+  return `${s4()}${s4()}-${s4()}-${s4()}-${s4()}-${s4()}${s4()}${s4()}`;
 }

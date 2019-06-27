@@ -1,7 +1,7 @@
 import update from "immutability-helper";
-import { getInitialState } from "../state";
+import { getInitialState } from "../../state";
 import { SET_LABELS } from "./TranslationAction";
-import { KeyedObject } from "../types";
+import { KeyedObject } from "../../types";
 
 export const translationReducer = (
   state = getInitialState().translation,

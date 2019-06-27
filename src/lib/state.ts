@@ -8,9 +8,9 @@ export const getInitialState = (): KeyedObject => {
 };
 
 export const wrapMapStateToProps = (
-  state: {[k: string]: any},
-  commonItems: {[k: string]: any},
-  appItems: {[k: string]: any}): any => {
+  state: KeyedObject,
+  commonItems: KeyedObject,
+  appItems: KeyedObject): KeyedObject => {
   if (state.form.app) {
     const items = appItems;
     Object.keys(items).forEach((key) => {

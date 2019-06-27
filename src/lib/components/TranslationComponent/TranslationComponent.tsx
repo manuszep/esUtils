@@ -2,8 +2,8 @@ import React, { Component, Dispatch } from "react";
 import { connect } from "react-redux";
 
 import { getTranslationFromLabelDictionary } from "./TranslationUtils";
-import { parseStringTemplate } from "../strings";
-import { KeyedObject } from "../types";
+import { parseStringTemplate } from "../../strings";
+import { KeyedObject } from "../../types";
 
 export type TranslationComponentPropsType = {
   tag: string,

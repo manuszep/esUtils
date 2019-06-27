@@ -1,6 +1,6 @@
-import axios from "axios/index";
-import { getAppGlobalVar, getAppPrefix } from "../globalVars";
-import { KeyedObject } from "../types";
+import axios from "axios";
+import { getAppGlobalVar, getAppPrefix } from "../../globalVars";
+import { KeyedObject } from "../../types";
 
 let labels = {};
 

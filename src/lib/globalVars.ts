@@ -17,12 +17,12 @@ declare global {
 let appGlobalVarPointer: KeyedObject;
 let appPrefix: string;
 
-export const appGlobalVarInit = (name: string, prefix: string) => {
+export const appGlobalVarInit = (name: string, prefix: string): void => {
   appGlobalVarPointer = window[name];
   appPrefix = prefix;
 };
 
-export const getAppGlobalVar = () => {
+export const getAppGlobalVar = (): KeyedObject => {
   return appGlobalVarPointer
   || window["Cypress"]
   || {
@@ -35,6 +35,6 @@ export const getAppGlobalVar = () => {
   };
 };
 
-export const getAppPrefix = () => {
+export const getAppPrefix = (): string => {
   return appPrefix;
 };
