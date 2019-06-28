@@ -2,10 +2,16 @@ import { getAppGlobalVar } from "./globalVars";
 import { KeyedObject } from "./types";
 
 export const getInitialState = (): KeyedObject => {
-  const gVar = getAppGlobalVar();
-
-  return gVar.initialState || {};
+  return getAppGlobalVar().initialState || {};
 };
+
+export function getEndPoints(): KeyedObject {
+  return getAppGlobalVar().endpoints || {};
+}
+
+export function getWhatsappPhone(): KeyedObject {
+  return getAppGlobalVar().whatsapp || { "whatsapp_phone": "https://api.whatsapp.com/send?phone=32491169028" };
+}
 
 export const wrapMapStateToProps = (
   state: KeyedObject,
