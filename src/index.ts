@@ -10,7 +10,7 @@ export * from "./lib/steps";
 export * from "./lib/strings";
 export * from "./lib/types";
 export * from "./lib/url";
-//export * from "./lib/validation";
+export * from "./lib/validation";
 export * from "./lib/components/Modal";
 export * from "./lib/components/TranslationComponent";
 export * from "./lib/components/Form";

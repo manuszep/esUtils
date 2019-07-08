@@ -6,10 +6,10 @@ import { parseStringTemplate } from "../../strings";
 import { KeyedObject } from "../../types";
 
 export type TranslationComponentPropsType = {
-  tag: string,
-  dispatch: Dispatch<any>,
-  labels: KeyedObject<string>,
-  replacements: KeyedObject<string>
+  tag?: string,
+  dispatch?: Dispatch<any>,
+  labels?: KeyedObject<string>,
+  replacements?: KeyedObject<string>
 }
 
 /**
@@ -18,7 +18,8 @@ export type TranslationComponentPropsType = {
 class TranslationComponent extends Component<TranslationComponentPropsType, {}> {
   getLabelValue() {
     const { children, labels } = this.props;
-    return getTranslationFromLabelDictionary(children, labels);
+    const currentLabels = labels || {};
+    return getTranslationFromLabelDictionary(children, currentLabels);
   }
 
   render() {
@@ -30,7 +31,9 @@ class TranslationComponent extends Component<TranslationComponentPropsType, {}> 
       replacements,
       ...rest
     } = this.props;
-    const translatedString = parseStringTemplate(this.getLabelValue(), replacements);
+
+    const currentReplacements = replacements || {};
+    const translatedString = parseStringTemplate(this.getLabelValue(), currentReplacements);
     const CustomTag: any = (typeof tag !== "undefined") ? tag : "span";
 
     return (
