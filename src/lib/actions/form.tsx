@@ -2,8 +2,9 @@ import { Dispatch } from "react";
 import { untouch } from "redux-form";
 
 import { KeyedObject } from "../types";
+import { AnyAction } from "redux";
 
-export const changeField = (fieldName: string, fieldValue: any): KeyedObject => {
+export const changeField = (fieldName: string, fieldValue: any): AnyAction => {
   return {
     "type": "@@redux-form/CHANGE",
     "meta": {

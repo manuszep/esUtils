@@ -9,7 +9,11 @@ export type TranslationComponentPropsType = {
   tag?: string,
   dispatch?: Dispatch<any>,
   labels?: KeyedObject<string>,
-  replacements?: KeyedObject<string>
+  replacements?: KeyedObject<string>,
+  className?: string,
+  disabled?: any,
+  key?: string,
+  value?: string
 }
 
 /**

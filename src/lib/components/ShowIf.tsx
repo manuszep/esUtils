@@ -3,7 +3,7 @@ import { shouldShowIf } from "../display";
 
 export type ShowIfComponentPropsType = {
   condition: boolean,
-  className: string
+  className?: string
 }
 
 export class ShowIf extends Component<ShowIfComponentPropsType, {}> {
