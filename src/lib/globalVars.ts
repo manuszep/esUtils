@@ -16,10 +16,19 @@ declare global {
 
 let appGlobalVarPointer: KeyedObject;
 let appPrefix: string;
+let appStore: any;
 
 export const appGlobalVarInit = (name: string, prefix: string): void => {
   appGlobalVarPointer = window[name];
   appPrefix = prefix;
+};
+
+export const setAppStoreVar = (store: any) => {
+  appStore = store;
+}
+
+export const getAppStore = (): any => {
+  return appStore;
 };
 
 export const getAppGlobalVar = (): KeyedObject => {

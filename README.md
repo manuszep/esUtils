@@ -9,3 +9,4 @@ Some methods need to be called to bootstrap the project. These methods should be
 - initSteps(steps: Steps) to define the steps list for the app
 - initIcons(icons: KeyedObject<JSX.Element>) to append icons to the default set
 - initModal(modalContainersPath: string) to define import path for modal containers
+- setAppStoreVar(store: any) to provide access to the appStore

@@ -16,4 +16,7 @@ export * from "./lib/components/TranslationComponent";
 export * from "./lib/components/Form";
 export * from "./lib/components/Icon";
 export * from "./lib/components/Link";
-export * from "./lib/components/ShowIfComponent";
+export * from "./lib/components/ShowIf";
+export * from "./lib/components/AppField";
+export * from "./lib/actions/form";
+export * from "./lib/FieldFormatters";

@@ -8,15 +8,20 @@ import {
   getCurrentDate,
   patternPhone,
   patternPhoneMobile,
-  patternEmail
+  patternEmail,
+  getAppStore
 } from "../index";
 
 export const required = (value: any): undefined | JSX.Element => {
   const prefix = getAppPrefix();
 
-  if (typeof value !== "undefined" && value !== "" && value !== "---" && value !== false) {
+  if (typeof value !== "undefined"
+    && value !== ""
+    && value !== "---"
+    && value !== false) {
     return undefined;
   }
+
   return <span className="form-control-feedback"><T>{`${prefix}_ERROR_REQUIRED`}</T></span>;
 };
 
