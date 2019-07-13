@@ -217,7 +217,8 @@ export const initIcons = (icons: KeyedObject<JSX.Element>) => {
 export type IconComponentPropsType = {
   name: string,
   className?: string,
-  tag?: string
+  tag?: string,
+  style?: KeyedObject
 }
 
 export class Icon extends Component<IconComponentPropsType, {}> {
