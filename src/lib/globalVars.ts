@@ -23,7 +23,7 @@ export const appGlobalVarInit = (name: string, prefix: string): void => {
   appPrefix = prefix;
 };
 
-export const setAppStoreVar = (store: any) => {
+export const setAppStoreVar = (store: any): void => {
   appStore = store;
 }
 

@@ -10,3 +10,310 @@ Some methods need to be called to bootstrap the project. These methods should be
 - initIcons(icons: KeyedObject<JSX.Element>) to append icons to the default set
 - initModal(modalContainersPath: string) to define import path for modal containers
 - setAppStoreVar(store: any) to provide access to the appStore
+
+## API
+
+### Types
+
+- ```typescript
+  KeyedObject<T = any> = {[k: string]: T}
+  ```
+- ```typescript
+  Step = {
+    "index": number,
+    "ID": string,
+    "number": number,
+    "pageTitle": string,
+    "chapter": string
+  }
+  ```
+
+
+### Data
+
+- ```typescript
+  phoneCountriesList: {
+    "name": {
+      "FR": string,
+      "NL": string
+    },
+    "dial_code": string,
+    "code": string,
+    "flag": string
+  }[]
+  ```
+
+
+### RegExp
+
+- ```typescript
+  patternPhone
+  ```
+- ```typescript
+  patternPhoneMobile
+  ```
+- ```typescript
+  patternEmail
+  ```
+
+
+### Utils / Analytics
+
+- ```typescript
+  getGaAccount(): string
+  ```
+- ```typescript
+  getGoogleAnalyticsId(): string
+  ```
+- ```typescript
+  trackConversion(id: string): void
+  ```
+
+
+### Utils / DataLayer
+
+- ```typescript
+  initDataLayer(customMethods: KeyedObject<Function> = {}): void
+  ```
+- ```typescript
+  getDataLayer(): DataLayer
+  ```
+- ```typescript
+  dataLayerMiddleware: Middleware({ getState }: MiddlewareAPI)
+  ```
+
+
+### Utils / Dates
+
+- ```typescript
+  parseDate(date: string): moment.Moment
+  ```
+- ```typescript
+  getCurrentDate(): moment.Moment
+  ```
+- ```typescript
+  getDifferenceInYears(
+    firstDate: moment.Moment,
+    secondDate: moment.Moment
+  ): number
+  ```
+- ```typescript
+  getIsAdult(dob: string): boolean
+  ```
+
+
+### Utils / Display
+
+- ```typescript
+  scrollTo(speed = 100, scrollTargetY = 0): void
+  ```
+- ```typescript
+  shouldShowIf(condition: boolean): { "hidden"?: boolean }
+  ```
+
+
+### Utils / FieldFormatters
+
+- ```typescript
+  priceFormatter(value: string): string
+  ```
+- ```typescript
+  priceNormalizer(value: string): string
+  ```
+
+
+### Utils / GlobalVars
+
+- ```typescript
+  appGlobalVarInit(name: string, prefix: string): void
+  ```
+- ```typescript
+  setAppStoreVar(store: any): void
+  ```
+- ```typescript
+  getAppStore(): any
+  ```
+- ```typescript
+  getAppGlobalVar(): KeyedObject
+  ```
+- ```typescript
+  getAppPrefix(): string
+  ```
+
+
+### Utils / Performance
+
+- ```typescript
+  throttle(fn: Function, threshhold: number, scope: any): Function
+  ```
+- ```typescript
+  requestAnimFrame(): Function
+  ```
+
+
+### Utils / State
+
+- ```typescript
+  getInitialState(): KeyedObject
+  ```
+- ```typescript
+  getEndPoints(): KeyedObject
+  ```
+- ```typescript
+  getWhatsappPhone(): KeyedObject
+  ```
+- ```typescript
+  wrapMapStateToProps(
+    state: KeyedObject,
+    commonItems: KeyedObject,
+    appItems: KeyedObject
+  ): KeyedObject
+  ```
+
+
+### Utils / Steps
+
+- ```typescript
+  initSteps(steps: Steps): void
+  ```
+- ```typescript
+  getStepByIndex(index: number): Step
+  ```
+- ```typescript
+  getStepById(id: string): Step | undefined
+  ```
+- ```typescript
+  getNextStep(step: Step): Step | null
+  ```
+- ```typescript
+  getPreviousStep(step: Step): Step | null
+  ```
+- ```typescript
+  getLastStep(): Step
+  ```
+- ```typescript
+  getStepInNumberFormat(stepString: string): string
+  ```
+
+
+### Utils / Strings
+
+- ```typescript
+  PHONE_FIXED
+  ```
+- ```typescript
+  PHONE_MOBILE
+  ```
+- ```typescript
+  parseStringTemplate(
+    str: string,
+    replacements: KeyedObject<string>
+  ): string
+  ```
+- ```typescript
+  capitalizeFirstLetter(s: string): string
+  ```
+- ```typescript
+  composeStreetAddress(
+    street: string,
+    streetNr: string,
+    postalBoxText = "",
+    boxNr = ""
+  ): string
+  ```
+- ```typescript
+  composeCityAddress(postalCode: number | string, city: string): string
+  ```
+- ```typescript
+  composeFullAddress(
+    street: string,
+    streetNr: string,
+    postalBoxText = "",
+    boxNr = "",
+    postalCode: number | string,
+    city: string,
+    oneLine: boolean
+  ): string
+  ```
+- ```typescript
+  composeGmapsAddress(
+    street = "",
+    streetNumber = "",
+    postalCode = "",
+    city = ""
+  ): string
+  ```
+- ```typescript
+  formatPrice(price: string, lang = "fr"): string
+  ```
+- ```typescript
+  formatPercentage(num: number): string
+  ```
+- ```typescript
+  normalizeCountryPrefixTo00(prefix: string): string
+  ```
+- ```typescript
+  normalizeCountryPrefixToPlus(prefix: string): string
+  ```
+- ```typescript
+  normalizeAreaPrefix(prefix: string): string
+  ```
+- ```typescript
+  constructPhoneNumber(prefix: string, phoneNumber: string): string
+  ```
+- ```typescript
+  getPhoneType(phone: string): string
+  ```
+- ```typescript
+  phoneTransform(phone: string): string | null
+  ```
+- ```typescript
+  getOptionLabelFromValue(
+    options: Array<KeyedObject<string>>,
+    value: string
+  ): string
+  ```
+- ```typescript
+  getGuid(): string
+  ```
+
+
+### Utils / URL
+
+- ```typescript
+  getHistoryLocation(): string
+  ```
+
+
+### Utils / Validation
+
+- ```typescript
+  required(value: any): undefined | JSX.Element
+  ```
+- ```typescript
+  isValidDate(value: string): boolean
+  ```
+- ```typescript
+  dateAfterToday(value: string): boolean | undefined | JSX.Element
+  ```
+- ```typescript
+  dateWithinYear(value: string): boolean | undefined | JSX.Element
+  ```
+- ```typescript
+  validDate(value: string): boolean | undefined | JSX.Element
+  ```
+- ```typescript
+  dateNotBefore1900(value: string): undefined | JSX.Element
+  ```
+- ```typescript
+  dateNotInFuture(value: string): undefined | JSX.Element
+  ```
+- ```typescript
+  validEmail(value: string): undefined | JSX.Element
+  ```
+- ```typescript
+  validPhoneLogic(phoneNumber: string): boolean
+  ```
+- ```typescript
+  validPhone(value: string): undefined | JSX.Element
+  ```

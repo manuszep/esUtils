@@ -8,8 +8,7 @@ import {
   getCurrentDate,
   patternPhone,
   patternPhoneMobile,
-  patternEmail,
-  getAppStore
+  patternEmail
 } from "../index";
 
 export const required = (value: any): undefined | JSX.Element => {
@@ -95,7 +94,7 @@ export const validEmail = (value: string): undefined | JSX.Element => {
     : undefined;
 };
 
-export function validPhoneLogic(phoneNumber: string): boolean {
+export const validPhoneLogic = (phoneNumber: string): boolean => {
   if (!phoneNumber) {
     return true;
   }
