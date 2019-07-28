@@ -1,8 +1,11 @@
 import { Dispatch } from "react";
 import { untouch } from "redux-form";
+import { AnyAction } from "redux";
+import axios from "axios/index";
+import querystring from "query-string-es5-with-types";
 
 import { KeyedObject } from "../types";
-import { AnyAction } from "redux";
+import { getEndPoints } from "../state";
 
 export const changeField = (fieldName: string, fieldValue: any): AnyAction => {
   return {
@@ -50,3 +53,13 @@ export const unTouchMultipleFields = (fieldNames: string[]) => {
     fieldNames.forEach(fieldName => dispatch(unTouchField(fieldName)));
   };
 };
+
+export function saveLeadToBrokerReason(leadToBrokerReason: any) {
+  const fieldsAndValues = {
+    "LEAD_TO_BROKER_REASON": leadToBrokerReason
+  };
+  axios.post(`${getEndPoints().saveBlockedInFlowReason}&v=${(new Date()).valueOf()}`, querystring.stringify(fieldsAndValues))
+    .catch((err) => {
+      Promise.reject(err);
+    });
+}

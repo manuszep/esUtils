@@ -13,7 +13,7 @@ export const dismissModal = () => {
   };
 };
 
-export const showModal = (firstArg: KeyedObject = {}, secondArg: KeyedObject = {}) => {
+export const showModal = (firstArg: string | KeyedObject = {}, secondArg: KeyedObject = {}) => {
   /*
   * If the first argument is a string, we will load a ModalContainer from the components/ModalContainers folder.
   * The second (optional) argument - an object then becomes the props.

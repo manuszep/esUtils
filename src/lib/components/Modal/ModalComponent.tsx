@@ -1,4 +1,5 @@
 import React, { Component as ReactComponent } from "react";
+import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import classNames from "classnames";
 
@@ -6,7 +7,6 @@ import { SimpleModal } from "./SimpleModalComponent";
 
 import { dismissModal } from "./ModalAction";
 import { KeyedObject } from "../../types";
-import { Dispatch } from "redux";
 
 let appModalContainersPath: string;
 

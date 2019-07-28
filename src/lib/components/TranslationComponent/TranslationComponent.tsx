@@ -5,21 +5,10 @@ import { getTranslationFromLabelDictionary } from "./TranslationUtils";
 import { parseStringTemplate } from "../../strings";
 import { KeyedObject } from "../../types";
 
-export type TranslationComponentPropsType = {
-  tag?: string,
-  dispatch?: Dispatch<any>,
-  labels?: KeyedObject<string>,
-  replacements?: KeyedObject<string>,
-  className?: string,
-  disabled?: any,
-  key?: string,
-  value?: string
-}
-
 /**
  * This is a simple wrapper to inject HTML translated content in JSX.
  */
-class TranslationComponent extends Component<TranslationComponentPropsType, {}> {
+class TranslationComponent extends Component<KeyedObject, {}> {
   getLabelValue() {
     const { children, labels } = this.props;
     const currentLabels = labels || {};
