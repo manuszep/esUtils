@@ -1,18 +1,21 @@
 import { connect } from "react-redux";
+import { Dispatch } from "redux";
 import React, { Component } from "react";
 import classNames from "classnames";
-import { wrapMapStateToProps } from "../../../state";
-import { Translation as T } from "../../TranslationComponent";
-import { changeField as changeFieldAction } from "../../../actions/form";
-import { KeyedObject } from "../../../types";
-import { Dispatch } from "redux";
+
+import {
+  wrapMapStateToProps,
+  Translation as T,
+  changeField as changeFieldAction,
+  KeyedObject
+} from "local";
 
 export type TogglePropsType = {
   labelOn: string,
   labelOff: string,
   name: string,
   onClick: (event: any) => void,
-  fldValue: string,
+  fldValue: string | boolean,
   label: string,
   replacements: KeyedObject<string>,
   small: any,
@@ -52,7 +55,7 @@ class ToggleComponent extends Component<TogglePropsType, {}> {
             className="axa-toggle__input"
             name={name}
             onClick={onClick}
-            checked={fldValue === "1"}
+            checked={fldValue === "1" || fldValue === true}
             onChange={(event) => {
               changeField(name, fldValue === "1" ? "0" : "1");
               if (typeof onChange === "function") {

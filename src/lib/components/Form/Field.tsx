@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Field as ReduxField } from "redux-form";
 
-import { FieldInner } from "./FieldInner";
-import { KeyedObject } from "../../types";
+import { FieldInner, KeyedObject } from "local";
 
 export class Field extends Component<KeyedObject> {
   normalizeField(value: string) {
-    return value ? value.replace("<", "")
+    return (typeof value !== "undefined" && typeof value.replace !== "undefined") ? value.replace("<", "")
       .replace(">", "")
       .replace("&", "") : value;
   }

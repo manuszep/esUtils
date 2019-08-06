@@ -1,13 +1,15 @@
 import React, { Component } from "react";
+import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import Pikaday from "pikaday"; // Doc: https://github.com/dbushell/Pikaday
 
-import { getTranslation } from "../TranslationComponent";
-import { Icon } from "../Icon";
-import { changeField as changeFieldAction } from "../../actions/form";
-import { Field } from "./Field";
-import { KeyedObject } from "../../types";
-import { Dispatch } from "redux";
+import {
+  getTranslation,
+  Icon,
+  changeField as changeFieldAction,
+  Field,
+  KeyedObject
+} from "local";
 
 export type DateFieldPropsType = {
   datePicker: any,

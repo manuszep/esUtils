@@ -1,8 +1,7 @@
+import { Dispatch } from "redux";
 import axios from "axios";
 
-import { getEndPoints } from "../../../../state";
-import { Action, ActionCreator, Dispatch, AnyAction } from "redux";
-import { KeyedObject } from "../../../../types";
+import { getEndPoints, KeyedObject } from "local";
 
 export const SET_CITY_AUTOCOMPLETE = "SET_CITY_AUTOCOMPLETE";
 export const SET_STREET_AUTOCOMPLETE = "SET_STREET_AUTOCOMPLETE";

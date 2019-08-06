@@ -1,6 +1,10 @@
 import axios from "axios";
-import { getAppGlobalVar, getAppPrefix } from "../../globalVars";
-import { KeyedObject } from "../../types";
+
+import {
+  getAppGlobalVar,
+  getAppPrefix,
+  KeyedObject
+} from "local";
 
 let labels = {};
 

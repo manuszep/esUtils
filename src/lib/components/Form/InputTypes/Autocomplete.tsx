@@ -3,8 +3,7 @@ import ReactAutocomplete from "react-autocomplete";
 import classNames from "classnames";
 import { connect } from "react-redux";
 
-import { shouldShowIf } from "../../../display";
-import { KeyedObject } from "../../../types";
+import { shouldShowIf, KeyedObject, getTranslation } from "local";
 
 const menuStyles = {
   "borderRadius": "3px",
@@ -126,7 +125,7 @@ class AutocompleteComponent extends Component<KeyedObject, KeyedObject> {
             "className": "form-control", /* TODO: validation? */
             "type": "text",
             "maxLength": maxLength,
-            "placeholder": placeholder,
+            "placeholder": getTranslation(placeholder),
             "onBlur": () => this.handleBlur(name),
             "autoComplete": "off",
             ...rest

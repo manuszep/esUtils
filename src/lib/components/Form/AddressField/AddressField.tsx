@@ -6,22 +6,20 @@ import { Dispatch } from "redux";
 import axios from "axios";
 import { change as reduxFormChange } from "redux-form";
 
-
-import { Translation as T } from "../../TranslationComponent";
-import { Field } from "../Field";
-import { Autocomplete } from "../InputTypes/Autocomplete";
-import { FieldInline } from "../FieldInline";
-import { FieldTooltip } from "../FieldTooltip";
-import { ShowIf } from "../../ShowIf";
-import { getTranslation } from "../../TranslationComponent";
-import { getAppGlobalVar } from "../../../globalVars";
-import { KeyedObject } from "../../../types";
-import { changeField } from "../../../actions/form";
 import {
+  Translation as T,
+  Field,
+  Autocomplete,
+  FieldInline,
+  FieldTooltip,
+  ShowIf,
+  getAppGlobalVar,
+  KeyedObject,
+  changeField,
   updateAutoCompleteCities,
-  updateAutoCompleteStreets
-} from "./actions/addressFieldActions";
-import { wrapMapStateToProps } from "../../../state";
+  updateAutoCompleteStreets,
+  wrapMapStateToProps,
+} from "local";
 
 class AddressFieldComponent extends Component<KeyedObject, KeyedObject> {
   timer: any;
@@ -258,7 +256,7 @@ class AddressFieldComponent extends Component<KeyedObject, KeyedObject> {
                 id={`${tagId}_ZIP`}
                 type="number"
                 maxLength={4}
-                placeholder={getTranslation(`FLD_ADDRESS_POSTAL_CODE_PLACEHOLDER`)}
+                placeholder="FLD_ADDRESS_POSTAL_CODE_PLACEHOLDER"
                 fieldSubmitted={fieldSubmitted}
                 onKeyPress={(e: KeyboardEvent) => this.handleZipKeyPress(e)}
                 onChange={(e: FormEvent) => this.handleOnChange(e)} />
@@ -269,7 +267,7 @@ class AddressFieldComponent extends Component<KeyedObject, KeyedObject> {
                 id={`${tagId}_CITY`}
                 maxLength={35}
                 type="text"
-                placeholder={getTranslation(`FLD_ADDRESS_CITY_PLACEHOLDER`)}
+                placeholder="FLD_ADDRESS_CITY_PLACEHOLDER"
                 fieldSubmitted={fieldSubmitted}
                 onFocus={(e: any) => updateCities(this.getPostalCode(), e.target.value)}
                 items={autocompleteCities}
@@ -323,7 +321,7 @@ class AddressFieldComponent extends Component<KeyedObject, KeyedObject> {
                 id={`${tagId}_STREET`}
                 type="text"
                 maxLength={33}
-                placeholder={getTranslation(`FLD_ADDRESS_STREET_PLACEHOLDER`)}
+                placeholder="FLD_ADDRESS_STREET_PLACEHOLDER"
                 fieldSubmitted={fieldSubmitted}
                 onFocus={(e: any) => updateStreets(
                   this.getPostalCode(),
@@ -357,7 +355,7 @@ class AddressFieldComponent extends Component<KeyedObject, KeyedObject> {
                 id={`${tagId}_STREET_NR`}
                 type="text"
                 maxLength={5}
-                placeholder={getTranslation(`FLD_ADDRESS_STREET_NUMBER_PLACEHOLDER`)}
+                placeholder="FLD_ADDRESS_STREET_NUMBER_PLACEHOLDER"
                 fieldSubmitted={fieldSubmitted}
                 onKeyPress={(e: any) => this.handleNumberKeyPress(e)}
                 onChange={(e: any) => this.handleOnChange(e)} />
@@ -369,7 +367,7 @@ class AddressFieldComponent extends Component<KeyedObject, KeyedObject> {
                 id={`${tagId}_STREET_BOX`}
                 type="text"
                 maxLength="3"
-                placeholder={getTranslation(`FLD_ADDRESS_STREET_BOX_PLACEHOLDER`)}
+                placeholder="FLD_ADDRESS_STREET_BOX_PLACEHOLDER"
                 fieldSubmitted={fieldSubmitted}
                 onChange={(e: any) => this.handleOnChange(e)} />
 

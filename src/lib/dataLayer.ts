@@ -1,9 +1,12 @@
 import { Middleware, MiddlewareAPI } from "redux";
-import { capitalizeFirstLetter, getGuid } from "./strings";
-import { getAppGlobalVar } from "./globalVars";
-import { KeyedObject } from "./types";
 
-import { getStepById } from "./steps";
+import {
+  capitalizeFirstLetter,
+  getGuid,
+  getAppGlobalVar,
+  KeyedObject,
+  getStepById
+} from "local";
 
 let dataLayerInstance: DataLayer;
 

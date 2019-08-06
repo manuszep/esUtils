@@ -1,5 +1,4 @@
-import { patternPhone, patternPhoneMobile } from "./regex";
-import { KeyedObject } from "./types";
+import { patternPhone, patternPhoneMobile, KeyedObject } from "local";
 
 export const PHONE_FIXED = 'PHONE_FIXED';
 export const PHONE_MOBILE = 'PHONE_MOBILE';
@@ -47,7 +46,7 @@ export const composeFullAddress = (
   boxNr = "",
   postalCode: number | string,
   city: string,
-  oneLine: boolean
+  oneLine = true
 ): string => {
   const separator = oneLine ? ", " : ",<br />";
 

@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import { wrapMapStateToProps } from "../../../state";
-import { Translation as T } from "../../TranslationComponent";
-import { changeField as changeFieldAction } from "../../../actions/form";
-import { KeyedObject } from "../../../types";
+
+import {
+  wrapMapStateToProps,
+  Translation as T,
+  changeField as changeFieldAction,
+  KeyedObject
+} from "local";
 
 export type CheckBoxPropsType = {
   label: string,

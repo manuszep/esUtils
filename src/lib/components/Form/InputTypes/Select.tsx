@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import classNames from "classnames";
-import { Translation as T } from "../../TranslationComponent";
-import { KeyedObject } from "../../../types";
+
+import {
+  Translation as T,
+  KeyedObject
+} from "local";
 
 export type SelectPropsType = {
   id: string,

@@ -3,15 +3,22 @@ import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import classNames from "classnames";
 
-import { SimpleModal } from "./SimpleModalComponent";
+import {
+  SimpleModal,
+  dismissModal,
+  KeyedObject
+} from "local";
 
-import { dismissModal } from "./ModalAction";
-import { KeyedObject } from "../../types";
+let appModalContainers: KeyedObject;
+let appModalPrefix: string;
 
-let appModalContainersPath: string;
+export const initModal = (modalContainers: KeyedObject, prefix: string): void => {
+  appModalPrefix = prefix;
+  appModalContainers = modalContainers;
+}
 
-export const initModal = (modalContainersPath: string): void => {
-  appModalContainersPath = modalContainersPath;
+export const getModalPrefix = () => {
+  return appModalPrefix;
 }
 
 export type ModalComponentPropsType = {
@@ -37,10 +44,10 @@ class ModalComponent extends ReactComponent<ModalComponentPropsType, ModalCompon
   }
 
   fetchModalContent(props: KeyedObject) {
-    if (props.modalContentPath === null) return;
-    import(`${appModalContainersPath}/${props.modalContentPath}.jsx`).then((result) => {
-      this.setState({ "Component": result.default });
-    });
+    const path = props.modalContentPath;
+    if (path === null) return;
+
+    this.setState({ "Component": appModalContainers[path] });
   }
 
   renderModalContent() {

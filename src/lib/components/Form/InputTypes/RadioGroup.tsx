@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import classnames from "classnames";
-import { Translation as T } from "../../TranslationComponent";
-import { Icon } from "../../Icon";
-import { KeyedObject } from "../../../types";
+
+import {
+  Translation as T,
+  Icon,
+  KeyedObject
+} from "local";
 
 export type RadioGroupPropsType = {
   items: Array<KeyedObject>,
   value: string,
   name: string,
   onChange: (event: any) => void,
+  onBlur: (event: any) => void,
   mode: string,
   size: string
 }
@@ -29,6 +33,7 @@ export class RadioGroup extends Component<RadioGroupPropsType, {}> {
       items,
       value,
       onChange,
+      onBlur,
       name,
       mode,
       size
@@ -51,7 +56,8 @@ export class RadioGroup extends Component<RadioGroupPropsType, {}> {
             name={name}
             value={item.value}
             checked={checked}
-            onChange={onChange} />
+            onChange={onChange}
+            onBlur={onBlur} />
           <span className="custom-control-indicator" />
           <span className={labelClass}>{this.getIcon(item)}<T>{item.label}</T></span>
         </label>

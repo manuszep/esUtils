@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { shouldShowIf } from "../display";
+
+import { shouldShowIf } from "local";
 
 export type ShowIfComponentPropsType = {
   condition: boolean,

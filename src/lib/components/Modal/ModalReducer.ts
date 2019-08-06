@@ -2,9 +2,9 @@ import update from "immutability-helper";
 
 import {
   DISMISS_MODAL,
-  SHOW_MODAL
-} from "./ModalAction";
-import { KeyedObject } from "../../types";
+  SHOW_MODAL,
+  KeyedObject
+} from "local";
 
 const defaultState = {
   "show": false,

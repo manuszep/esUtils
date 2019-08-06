@@ -4,8 +4,27 @@ import { AnyAction } from "redux";
 import axios from "axios/index";
 import querystring from "query-string-es5-with-types";
 
-import { KeyedObject } from "../types";
-import { getEndPoints } from "../state";
+import { KeyedObject, getEndPoints, getReduxStore } from "local";
+
+export const constructFieldsToSave = (getState: Function, fields = [], fieldsAndValues = [], shouldSaveState = false, stringify = true) => {
+  const result: { [key: string]: any } = {};
+
+  fields.forEach((fieldName: string) => {
+    result[fieldName] = getState().form.app.values[fieldName];
+  });
+
+  fieldsAndValues.forEach((item: { name: any, value: any }) => {
+    result[item.name] = item.value;
+  });
+
+  if (shouldSaveState) {
+    result.REDUX_STATE = getReduxStore(getState);
+  }
+  if (stringify) {
+    return querystring.stringify(result);
+  }
+  return result;
+};
 
 export const changeField = (fieldName: string, fieldValue: any): AnyAction => {
   return {

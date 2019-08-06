@@ -1,9 +1,12 @@
-import { Dispatch, AnyAction } from "redux";
-import { getStepInNumberFormat } from "../steps";
-import { getEndPoints } from "../state";
-import { changeField, saveLeadToBrokerReason } from "./form";
-import { deepFind } from "../utils";
-import { KeyedObject } from "../types";
+import { Dispatch } from "redux";
+
+import {
+  getStepInNumberFormat,
+  getEndPoints,
+  changeField,
+  deepFind,
+  KeyedObject
+} from "local";
 
 export const GOTO_NEXT_STEP = "GOTO_NEXT_STEP";
 export const GOTO_PREVIOUS_STEP = "GOTO_PREVIOUS_STEP";
@@ -131,9 +134,7 @@ export const submitButtonDisabled = (step: string, value: boolean): {type: strin
 
 export const goToNHFFlow = (reason: any) => {
   return (dispatch: Dispatch, getState: Function) => {
-    dispatch(activateLoading());
     const lang = getState().pageState.lang;
-    saveLeadToBrokerReason(reason);
     window.location.href = getEndPoints().redirectToNHFUrl.replace("%%lang%%", lang);
   };
 };

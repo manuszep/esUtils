@@ -1,7 +1,10 @@
 import React, { Component, FormEvent, MouseEvent } from "react";
 import Classnames from "classnames";
-import { Translation as T } from "../TranslationComponent";
-import { Icon } from "../Icon";
+
+import {
+  Translation as T,
+  Icon
+} from "local";
 
 export type FieldTooltipPropsType = {
   help: string

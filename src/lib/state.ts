@@ -1,5 +1,4 @@
-import { getAppGlobalVar } from "./globalVars";
-import { KeyedObject } from "./types";
+import { getAppGlobalVar, KeyedObject } from "local";
 
 export const getInitialState = (): KeyedObject => {
   return getAppGlobalVar().initialState || {};

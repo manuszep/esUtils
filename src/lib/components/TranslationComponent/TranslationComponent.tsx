@@ -1,9 +1,11 @@
-import React, { Component, Dispatch } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { getTranslationFromLabelDictionary } from "./TranslationUtils";
-import { parseStringTemplate } from "../../strings";
-import { KeyedObject } from "../../types";
+import {
+  getTranslationFromLabelDictionary,
+  parseStringTemplate,
+  KeyedObject
+} from "local";
 
 /**
  * This is a simple wrapper to inject HTML translated content in JSX.

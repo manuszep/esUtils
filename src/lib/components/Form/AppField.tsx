@@ -2,10 +2,9 @@ import { Component, Dispatch } from "react";
 
 import {
   changeField as changeFieldAction,
-  unTouchField as unTouchFieldAction
-} from "../../actions/form";
-
-import { getAppStore } from "../../globalVars";
+  unTouchField as unTouchFieldAction,
+  getAppStore
+} from "local";
 
 export class AppField extends Component {
   name: string;

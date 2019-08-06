@@ -2,15 +2,15 @@ import React, { Component, FormEvent, Dispatch } from "react";
 import { connect } from "react-redux";
 import className from "classnames";
 
-import { Translation as T, getTranslation } from "../TranslationComponent";
-
-import { changeField as changeFieldAction } from "../../actions/form";
-import { constructPhoneNumber } from "../../strings";
-import { phoneCountriesList } from "../../phoneCountriesList";
-
-import { wrapMapStateToProps } from "../../state";
-import { FieldInline } from "./FieldInline";
-import { KeyedObject } from "../../types";
+import {
+  Translation as T,
+  changeField as changeFieldAction,
+  constructPhoneNumber,
+  phoneCountriesList,
+  wrapMapStateToProps,
+  FieldInline,
+  KeyedObject
+} from "local";
 
 export type PhoneFieldPropsType = {
   lang: "FR" | "NL",
@@ -235,7 +235,7 @@ class PhoneFieldComponent extends Component<PhoneFieldPropsType, KeyedObject> {
             className="form-control phone-input__field"
             type="text"
             name={PhoneField.getNumberField(name)}
-            placeholder={getTranslation(`PHONE_NUMBER_PLACEHOLDER`)}
+            placeholder="PHONE_NUMBER_PLACEHOLDER"
             onKeyPress={(e: any) => this.handleKeyPress(e)}
             onBlur={(e: any) => this.updatePhoneNumber(e)}
             onChange={onChange} />

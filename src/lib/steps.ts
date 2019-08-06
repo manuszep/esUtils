@@ -1,4 +1,4 @@
-import { Step, Steps } from "./types";
+import { Step, Steps } from "local";
 
 let stepsList: Steps;
 

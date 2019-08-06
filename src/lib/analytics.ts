@@ -1,4 +1,4 @@
-import { getAppGlobalVar } from "./globalVars";
+import { getAppGlobalVar } from "local";
 
 export const getGaAccount = (): string => {
   return getAppGlobalVar().GA_ACCOUNT || "UA-90671794-1"; // default FT/STG account

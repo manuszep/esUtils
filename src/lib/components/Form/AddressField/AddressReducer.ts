@@ -1,8 +1,8 @@
 import update from "immutability-helper";
 
-import { getInitialState } from "../../../state";
-
 import {
+  getInitialState,
+  KeyedObject,
   SET_CITY_AUTOCOMPLETE,
   SET_AUTOCOMPLETE_FULL_DATA,
   SET_STREET_AUTOCOMPLETE,
@@ -10,8 +10,7 @@ import {
   SET_NON_NORMALIZED_ADDRESS,
   SET_STREET_NR,
   SET_BOX_NR
-} from "./actions/addressFieldActions";
-import { KeyedObject } from "../../../types";
+} from "local";
 
 export const addressReducer = (state = getInitialState().address, action: KeyedObject) => {
   switch (action.type) {

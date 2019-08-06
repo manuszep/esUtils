@@ -1,4 +1,4 @@
-import { KeyedObject } from "./types";
+import { KeyedObject } from "local";
 
 export const deepFind = (obj: KeyedObject, path: string) => {
   let current = obj;

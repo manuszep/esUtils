@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import classNames from "classnames";
-import { Field } from "./Field";
-import { KeyedObject } from "../../types";
+
+import { Field, KeyedObject } from "local";
 
 export class FieldInline extends Component<KeyedObject, {}> {
   render() {

@@ -1,17 +1,19 @@
 import React, { Component } from "react";
 import classNames from "classnames";
-import { Translation as T, getTranslation } from "../TranslationComponent";
-import { ShowIf } from "../ShowIf";
-import { FieldTooltip } from "./FieldTooltip";
+
 import {
+  Translation as T,
+  getTranslation,
+  ShowIf,
+  FieldTooltip,
   Select,
   RadioGroup,
   CheckBox,
   Toggle,
   Radio,
-  PaymentMethod
-} from "./InputTypes";
-import { KeyedObject } from "../../types";
+  PaymentMethod,
+  KeyedObject
+} from "local";
 
 export class FieldInner extends Component<KeyedObject> {
   getMarkup() {

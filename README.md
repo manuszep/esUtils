@@ -8,8 +8,27 @@ Some methods need to be called to bootstrap the project. These methods should be
 - initDataLayer(customMethods: KeyedObject<Function> = {}) to get the dataLayer ready and set custom methods
 - initSteps(steps: Steps) to define the steps list for the app
 - initIcons(icons: KeyedObject<JSX.Element>) to append icons to the default set
-- initModal(modalContainersPath: string) to define import path for modal containers
+- initModal(modalContainers: KeyedObject, prefix: string) to provide modal containers and app prefix
 - setAppStoreVar(store: any) to provide access to the appStore
+
+## Endpoints list
+
+The initial state should provide a few endpoints for some modules:
+
+```json
+window.appName = {
+  "endpoints": {
+    "getLanguages": "/api/lang%%lang%%.json?1=1",
+    "saveState": "/api/saveState.json?1=1",
+    "getCountries": "/api/countries%%lang%%.json",
+    "GetCityProposals": "/api/GetCityProposals.json",
+    "GetPostalAddressProposals": "/api/GetPostalAddressProposals.json",
+    "getIBPBrokers" : "/api/getIBPBrokers.json?1=1",
+    "getAgentData": "/api/getAgentData.json?1=1",
+    "saveBlockedInFlowReason": "/api/submitStep.json?1=1",
+  }
+}
+```
 
 ## API
 

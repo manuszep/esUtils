@@ -1,4 +1,4 @@
-import { KeyedObject } from "./types";
+import { KeyedObject } from "local";
 
 /**
  * How to use:

@@ -1,17 +1,16 @@
 import React, { Component } from "react";
-import { Dispatch, AnyAction } from "redux";
 import { connect } from "react-redux";
 import classnames from "classnames";
 import jump from "jump.js";
-import { Translation as T } from "./TranslationComponent";
-import { showModal as showModalAction } from "./Modal";
 
 import {
+  Translation as T,
+  showModal as showModalAction,
   gotoPreviousStep as gotoPreviousStepAction,
   gotoStep as gotoStepAction,
-  handleGoToPreviousStep as handleGoToPreviousStepAction
-} from "../actions";
-import { KeyedObject } from "../types";
+  handleGoToPreviousStep as handleGoToPreviousStepAction,
+  KeyedObject
+} from "local";
 
 class BtnZoneComponent extends Component<KeyedObject, KeyedObject> {
   componentDidUpdate(prevProps: KeyedObject) {
