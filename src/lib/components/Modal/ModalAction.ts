@@ -1,6 +1,6 @@
 import ReactGA from "react-ga";
 
-import { KeyedObject, getModalPrefix } from "local";
+import { KeyedObject, getModalPrefix } from "../../../index";
 
 export const DISMISS_MODAL = "DISMISS_MODAL";
 export const SHOW_MODAL = "SHOW_MODAL";

@@ -4,7 +4,7 @@ import classnames from "classnames";
 import {
   Translation as T,
   KeyedObject
-} from "local";
+} from "../../index";
 
 export class IframeLoader extends Component<KeyedObject, KeyedObject> {
   constructor(props: KeyedObject) {

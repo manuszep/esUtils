@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Translation as T, getGuid, KeyedObject } from "local";
+import { Translation as T, getGuid, KeyedObject } from "../../../../index";
 
 export type PaymentMethodPropsType = {
   items: Array<KeyedObject>,

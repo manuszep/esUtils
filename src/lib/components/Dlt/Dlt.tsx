@@ -8,7 +8,7 @@ import {
   composeGmapsAddress,
   wrapMapStateToProps,
   KeyedObject
-} from "local";
+} from "../../../index";
 
 class DltComponent extends Component<KeyedObject, KeyedObject> {
   ifr: Component | null = null;

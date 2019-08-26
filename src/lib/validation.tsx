@@ -8,7 +8,7 @@ import {
   patternPhone,
   patternPhoneMobile,
   patternEmail
-} from "local";
+} from "../index";
 
 export const required = (value: any): undefined | JSX.Element => {
 

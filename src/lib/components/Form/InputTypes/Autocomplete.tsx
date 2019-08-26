@@ -3,7 +3,7 @@ import ReactAutocomplete from "react-autocomplete";
 import classNames from "classnames";
 import { connect } from "react-redux";
 
-import { shouldShowIf, KeyedObject, getTranslation } from "local";
+import { shouldShowIf, KeyedObject, getTranslation } from "../../../../index";
 
 const menuStyles = {
   "borderRadius": "3px",

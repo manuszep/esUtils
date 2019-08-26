@@ -15,7 +15,7 @@ import {
   hasOneProspectPointOfSale,
   KeyedObject,
   Translation as T
-} from "local";
+} from "../../../index";
 
 export const CHECK_PROSPECT = "CHECK_PROSPECT";
 export const SET_BROKER_IBP = "SET_BROKER_IBP";

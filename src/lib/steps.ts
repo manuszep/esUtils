@@ -1,4 +1,4 @@
-import { Step, Steps } from "local";
+import { Step, Steps } from "../index";
 
 let stepsList: Steps;
 

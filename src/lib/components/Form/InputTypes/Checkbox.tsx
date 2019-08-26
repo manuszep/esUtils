@@ -7,7 +7,7 @@ import {
   Translation as T,
   changeField as changeFieldAction,
   KeyedObject
-} from "local";
+} from "../../../../index";
 
 export type CheckBoxPropsType = {
   label: string,

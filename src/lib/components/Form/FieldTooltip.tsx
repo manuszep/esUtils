@@ -4,7 +4,7 @@ import Classnames from "classnames";
 import {
   Translation as T,
   Icon
-} from "local";
+} from "../../../index";
 
 export type FieldTooltipPropsType = {
   help: string

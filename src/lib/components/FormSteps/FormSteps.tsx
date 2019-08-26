@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { KeyedObject } from "local";
+import { KeyedObject } from "../../../index";
 import { FormStep } from "./FormStep";
 
 const CLASS_FORM_STEPS = 'axa-form-steps';

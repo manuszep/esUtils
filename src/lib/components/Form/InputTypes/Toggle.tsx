@@ -8,20 +8,22 @@ import {
   Translation as T,
   changeField as changeFieldAction,
   KeyedObject
-} from "local";
+} from "../../../../index";
 
 export type TogglePropsType = {
   labelOn: string,
   labelOff: string,
+  valueOn: string,
+  valueOff: string,
   name: string,
-  onClick: (event: any) => void,
+  onClick: (event: any, value: any) => void,
   fldValue: string | boolean,
   label: string,
   replacements: KeyedObject<string>,
   small: any,
   customClass: string,
   changeField: (name: string, value: string) => void,
-  onChange: (event: any) => void
+  onChange: (event: any, value: any) => void
 }
 
 class ToggleComponent extends Component<TogglePropsType, {}> {
@@ -29,6 +31,8 @@ class ToggleComponent extends Component<TogglePropsType, {}> {
     const {
       labelOn,
       labelOff,
+      valueOn,
+      valueOff,
       name,
       onClick,
       fldValue,
@@ -43,6 +47,8 @@ class ToggleComponent extends Component<TogglePropsType, {}> {
 
     const _labelOn = labelOn || "LABEL_YES";
     const _labelOff = labelOff || "LABEL_NO";
+    const _valueOn = valueOn || "1";
+    const _valueOff = valueOff || "0";
 
     const cls = classNames("axa-toggle", { "axa-toggle--small": small });
     const toggleClass = classNames("axa-toggle__indicator", customClass);
@@ -54,12 +60,12 @@ class ToggleComponent extends Component<TogglePropsType, {}> {
             type="checkbox"
             className="axa-toggle__input"
             name={name}
-            onClick={onClick}
-            checked={fldValue === "1" || fldValue === true}
+            onClick={(event) => onClick(event, fldValue)}
+            checked={fldValue === _valueOn || fldValue === true}
             onChange={(event) => {
-              changeField(name, fldValue === "1" ? "0" : "1");
+              changeField(name, fldValue === "1" ? _valueOff : _valueOn);
               if (typeof onChange === "function") {
-                onChange(event);
+                onChange(event, fldValue);
               }
             }}
           />

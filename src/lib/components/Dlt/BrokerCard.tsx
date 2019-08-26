@@ -6,7 +6,7 @@ import {
   ShowIf,
   composeFullAddress,
   KeyedObject
-} from "local";
+} from "../../../index";
 
 export class BrokerCard extends Component<KeyedObject> {
   render() {

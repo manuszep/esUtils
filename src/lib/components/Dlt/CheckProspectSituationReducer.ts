@@ -5,7 +5,7 @@ import {
   KeyedObject,
   CHECK_PROSPECT,
   RESET_POINTS_OF_SALE, SET_BROKER_IBP
-} from "local";
+} from "../../../index";
 
 export const checkProspectSituationReducer = (state = getInitialState().checkProspectSituation, action: KeyedObject) => {
   switch (action.type) {

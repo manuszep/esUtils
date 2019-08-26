@@ -6,7 +6,7 @@ import {
   changeField,
   deepFind,
   KeyedObject
-} from "local";
+} from "../../index";
 
 export const GOTO_NEXT_STEP = "GOTO_NEXT_STEP";
 export const GOTO_PREVIOUS_STEP = "GOTO_PREVIOUS_STEP";

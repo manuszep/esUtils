@@ -1,7 +1,7 @@
 import axios from "axios";
 import querystring from "query-string-es5-with-types";
 
-import { getEndPoints } from "local";
+import { getEndPoints } from "../../index";
 
 export const getReduxStore = (getState: Function) => {
   const reduxStore = { ...getState() };

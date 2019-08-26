@@ -1,7 +1,7 @@
 import { Dispatch } from "redux";
 import axios from "axios";
 
-import { getEndPoints, KeyedObject } from "local";
+import { getEndPoints, KeyedObject } from "../../../../../index";
 
 export const SET_CITY_AUTOCOMPLETE = "SET_CITY_AUTOCOMPLETE";
 export const SET_STREET_AUTOCOMPLETE = "SET_STREET_AUTOCOMPLETE";

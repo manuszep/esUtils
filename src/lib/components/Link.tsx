@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { getTranslation } from "local";
+import { getTranslation } from "../../index";
 
 export type LinkComponentPropsType = {
   href: string,

@@ -6,7 +6,7 @@ import {
   getAppGlobalVar,
   KeyedObject,
   getStepById
-} from "local";
+} from "../index";
 
 let dataLayerInstance: DataLayer;
 

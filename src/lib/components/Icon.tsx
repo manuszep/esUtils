@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 
-import { KeyedObject } from "local";
+import { KeyedObject } from "../../index";
 
 const iconsList: KeyedObject<JSX.Element> = {
   "info-circle": (

@@ -10,7 +10,7 @@ import {
   wrapMapStateToProps,
   FieldInline,
   KeyedObject
-} from "local";
+} from "../../../index";
 
 export type PhoneFieldPropsType = {
   lang: "FR" | "NL",

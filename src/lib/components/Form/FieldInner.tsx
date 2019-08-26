@@ -13,7 +13,7 @@ import {
   Radio,
   PaymentMethod,
   KeyedObject
-} from "local";
+} from "../../../index";
 
 export class FieldInner extends Component<KeyedObject> {
   getMarkup() {

@@ -10,7 +10,7 @@ import {
   SET_NON_NORMALIZED_ADDRESS,
   SET_STREET_NR,
   SET_BOX_NR
-} from "local";
+} from "../../../../index";
 
 export const addressReducer = (state = getInitialState().address, action: KeyedObject) => {
   switch (action.type) {

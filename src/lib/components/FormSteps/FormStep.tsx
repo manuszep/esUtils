@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 
-import { Icon, KeyedObject } from "local";
+import { Icon, KeyedObject } from "../../../index";
 
 const CLASS_FORM_STEPS = 'axa-form-steps';
 const CLASS_FORM_STEP = `${CLASS_FORM_STEPS}__step`;

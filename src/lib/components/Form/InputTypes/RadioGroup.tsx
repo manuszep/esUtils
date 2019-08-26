@@ -5,7 +5,7 @@ import {
   Translation as T,
   Icon,
   KeyedObject
-} from "local";
+} from "../../../../index";
 
 export type RadioGroupPropsType = {
   items: Array<KeyedObject>,

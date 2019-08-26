@@ -9,7 +9,7 @@ import {
   changeField as changeFieldAction,
   Field,
   KeyedObject
-} from "local";
+} from "../../../index";
 
 export type DateFieldPropsType = {
   datePicker: any,

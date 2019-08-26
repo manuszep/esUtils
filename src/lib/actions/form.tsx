@@ -4,7 +4,7 @@ import { AnyAction } from "redux";
 import axios from "axios/index";
 import querystring from "query-string-es5-with-types";
 
-import { KeyedObject, getEndPoints, getReduxStore } from "local";
+import { KeyedObject, getEndPoints, getReduxStore } from "../../index";
 
 export const constructFieldsToSave = (getState: Function, fields = [], fieldsAndValues = [], shouldSaveState = false, stringify = true) => {
   const result: { [key: string]: any } = {};

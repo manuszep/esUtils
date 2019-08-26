@@ -10,7 +10,7 @@ import {
   gotoStep as gotoStepAction,
   handleGoToPreviousStep as handleGoToPreviousStepAction,
   KeyedObject
-} from "local";
+} from "../../index";
 
 class BtnZoneComponent extends Component<KeyedObject, KeyedObject> {
   componentDidUpdate(prevProps: KeyedObject) {

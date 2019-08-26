@@ -4,7 +4,7 @@ import {
   changeField as changeFieldAction,
   unTouchField as unTouchFieldAction,
   getAppStore
-} from "local";
+} from "../../../index";
 
 export class AppField extends Component {
   name: string;

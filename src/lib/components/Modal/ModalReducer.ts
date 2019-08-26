@@ -4,7 +4,7 @@ import {
   DISMISS_MODAL,
   SHOW_MODAL,
   KeyedObject
-} from "local";
+} from "../../../index";
 
 const defaultState = {
   "show": false,

@@ -1,4 +1,4 @@
-import { KeyedObject } from "local";
+import { KeyedObject } from "../index";
 
 /**
  * How to use:

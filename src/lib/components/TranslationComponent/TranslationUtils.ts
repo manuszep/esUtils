@@ -4,7 +4,7 @@ import {
   getAppGlobalVar,
   getAppPrefix,
   KeyedObject
-} from "local";
+} from "../../../index";
 
 let labels = {};
 

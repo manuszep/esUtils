@@ -5,7 +5,7 @@ import {
   getTranslationFromLabelDictionary,
   parseStringTemplate,
   KeyedObject
-} from "local";
+} from "../../../index";
 
 /**
  * This is a simple wrapper to inject HTML translated content in JSX.

@@ -7,7 +7,7 @@ import {
   SimpleModal,
   dismissModal,
   KeyedObject
-} from "local";
+} from "../../../index";
 
 let appModalContainers: KeyedObject;
 let appModalPrefix: string;

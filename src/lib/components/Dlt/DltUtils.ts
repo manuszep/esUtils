@@ -1,4 +1,4 @@
-import { KeyedObject } from "local";
+import { KeyedObject } from "../../../index";
 
 export function hasAgent(agentId: string) {
   return agentId !== "" && agentId !== null && typeof agentId !== "undefined";

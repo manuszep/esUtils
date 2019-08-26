@@ -1,4 +1,4 @@
-import { requestAnimFrame } from "local";
+import { requestAnimFrame } from "../index";
 
 export const scrollTo = (speed = 100, scrollTargetY = 0): void => {
   const scrollY = window.scrollY || document.documentElement.scrollTop;

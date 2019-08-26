@@ -4,7 +4,7 @@ import {
   getInitialState,
   SET_LABELS,
   KeyedObject
-} from "local";
+} from "../../../index";
 
 export const translationReducer = (
   state = getInitialState().translation,

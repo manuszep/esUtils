@@ -1,4 +1,4 @@
-import { getAppGlobalVar } from "local";
+import { getAppGlobalVar } from "../index";
 
 export const getGmapsUrl = () => {
   return getAppGlobalVar().gmapsUrl || "";

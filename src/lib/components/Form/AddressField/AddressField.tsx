@@ -19,7 +19,7 @@ import {
   updateAutoCompleteCities,
   updateAutoCompleteStreets,
   wrapMapStateToProps,
-} from "local";
+} from "../../../../index";
 
 class AddressFieldComponent extends Component<KeyedObject, KeyedObject> {
   timer: any;

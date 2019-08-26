@@ -1,4 +1,4 @@
-import { patternPhone, patternPhoneMobile, KeyedObject } from "local";
+import { patternPhone, patternPhoneMobile, KeyedObject } from "../index";
 
 export const PHONE_FIXED = 'PHONE_FIXED';
 export const PHONE_MOBILE = 'PHONE_MOBILE';

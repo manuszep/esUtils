@@ -4,7 +4,7 @@ import classNames from "classnames";
 import {
   Translation as T,
   KeyedObject
-} from "local";
+} from "../../../../index";
 
 export type SelectPropsType = {
   id: string,
