@@ -39,7 +39,7 @@ export const getCurrentLanguage = (): string => {
   return lang;
 };
 
-export const getTranslationFromLabelDictionary = (key: any, labelDictionary: KeyedObject<string>, noprefix = true): string => {
+export const getTranslationFromLabelDictionary = (key: any, labelDictionary: KeyedObject<string>, noprefix = false): string => {
   const appPrefix = noprefix ? "" : getAppPrefix();
   const prefix = appPrefix.length ? `${appPrefix.toUpperCase()}_` : "";
 
