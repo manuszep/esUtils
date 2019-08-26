@@ -11,10 +11,10 @@ import {
  * This is a simple wrapper to inject HTML translated content in JSX.
  */
 class TranslationComponent extends Component<KeyedObject, {}> {
-  getLabelValue() {
+  getLabelValue(noprefix = true) {
     const { children, labels } = this.props;
     const currentLabels = labels || {};
-    return getTranslationFromLabelDictionary(children, currentLabels);
+    return getTranslationFromLabelDictionary(children, currentLabels, noprefix);
   }
 
   render() {
@@ -24,11 +24,12 @@ class TranslationComponent extends Component<KeyedObject, {}> {
       dispatch,
       labels,
       replacements,
+      noprefix,
       ...rest
     } = this.props;
 
     const currentReplacements = replacements || {};
-    const translatedString = parseStringTemplate(this.getLabelValue(), currentReplacements);
+    const translatedString = parseStringTemplate(this.getLabelValue(noprefix), currentReplacements);
     const CustomTag: any = (typeof tag !== "undefined") ? tag : "span";
 
     return (
