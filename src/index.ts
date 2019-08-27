@@ -6,6 +6,7 @@ export * from "./lib/components/FormSteps/FormSteps";
 export * from "./lib/components/Modal";
 export * from "./lib/components/TranslationComponent";
 export * from "./lib/components/BtnZone";
+export * from "./lib/components/EditableValue";
 export * from "./lib/components/Dlt/index";
 export * from "./lib/components/Icon";
 export * from "./lib/components/IframeLoader";

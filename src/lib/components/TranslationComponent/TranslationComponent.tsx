@@ -28,8 +28,9 @@ class TranslationComponent extends Component<KeyedObject, {}> {
       ...rest
     } = this.props;
 
+    const noPrefixValue = typeof noprefix !== "undefined";
     const currentReplacements = replacements || {};
-    const translatedString = parseStringTemplate(this.getLabelValue(noprefix), currentReplacements);
+    const translatedString = parseStringTemplate(this.getLabelValue(noPrefixValue), currentReplacements);
     const CustomTag: any = (typeof tag !== "undefined") ? tag : "span";
 
     return (
