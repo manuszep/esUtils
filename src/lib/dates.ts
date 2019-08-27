@@ -14,7 +14,7 @@ export const getDifferenceInYears = (firstDate: moment.Moment, secondDate: momen
   return firstDate.diff(secondDate, 'years');
 }
 
-export const getAge = (dob:string) => {
+export const getAge = (dob: string, defaultAge: number) => {
   if (dob !== undefined) {
     const dateParts:string[] = dob.split("/");
     const dateObject = new Date(+dateParts[2], Number(dateParts[1]) - 1, +dateParts[0]);
@@ -23,7 +23,7 @@ export const getAge = (dob:string) => {
     const age = Math.abs(ageDt.getUTCFullYear() - 1970);
     return age;
   }
-  return 20; //default value to avoid undefined value
+  return defaultAge;
 }
 
 export const getIsAdult = (dob: string): boolean => {
