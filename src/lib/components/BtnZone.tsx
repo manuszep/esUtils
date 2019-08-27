@@ -13,13 +13,23 @@ import {
 } from "../../index";
 
 class BtnZoneComponent extends Component<KeyedObject, KeyedObject> {
+  constructor(props: KeyedObject) {
+    super(props);
+
+    this.state = {
+      shouldJump: false
+    }
+  }
+
   componentDidUpdate(prevProps: KeyedObject) {
     const { hasError } = this.props;
     const { hasErrorPrev } = prevProps;
 
     if (hasErrorPrev !== hasError
       && hasError
+      && this.state.shouldJump
       && document.querySelectorAll('.has-danger').length) {
+      this.setState({shouldJump: false});
       jump(".has-danger", {
         "duration": 200,
         "offset": -90
@@ -49,8 +59,8 @@ class BtnZoneComponent extends Component<KeyedObject, KeyedObject> {
         id="btnZonePrimary"
         tag="button"
         className={primaryBtnCls}
-        onMouseUp={primaryAction}
-        onTouchEnd={primaryAction}
+        onMouseUp={(e: MouseEvent) => {this.setState({shouldJump: true}); primaryAction(e);}}
+        onTouchEnd={(e: TouchEvent) => {this.setState({shouldJump: true}); primaryAction(e);}}
         disabled={disabled}>
         {labelPrimary}
       </T>

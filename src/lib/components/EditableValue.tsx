@@ -16,14 +16,16 @@ class EditableValueComponent extends Component<KeyedObject, KeyedObject> {
       step,
       cls,
       gotoStep,
-      withSpaces = true
+      withSpaces = true,
+      translate
     } = this.props;
 
     const iconCls = withSpaces ? "icon-with-spaces" : undefined;
+    const translateValue = typeof translate !== "undefined";
 
     return (
       <span className={cls || "value"}>
-        <T tag="span" noprefix>{children}</T>
+        <T tag="span" noprefix={!translateValue}>{children}</T>
         <small className="text-nowrap">
           <a href="#" onClick={() => gotoStep(step)} className="edit-link">
             <Icon name="edit" tag="span" className={iconCls} />

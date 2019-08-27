@@ -21,10 +21,12 @@ export class BrokerCard extends Component<KeyedObject> {
       showActions,
       actionLabel,
       actionHandler,
-      actionClass
+      actionClass,
+      email,
+      phone
     } = this.props;
 
-    const address = composeFullAddress(street, streetNumber, "", "", postalCode, city);
+    const address = composeFullAddress(street, streetNumber, "", "", postalCode, city, false);
     const btnClassName = classNames("btn btn-ghost btn-sm", actionClass);
 
     return (
@@ -33,7 +35,9 @@ export class BrokerCard extends Component<KeyedObject> {
 
         <div className="broker-card__details">
           <p className="broker-card__details__name">{name}</p>
-          <T tag="p" className="broker-card__details__address">{address}</T>
+          <p className="broker-card__details__address" dangerouslySetInnerHTML={{ "__html": address }} />
+          {phone && <p className="broker-card__details__phone" dangerouslySetInnerHTML={{ "__html": phone }} />}
+          {email && <p className="broker-card__details__email" dangerouslySetInnerHTML={{ "__html": email }} />}
         </div>
 
         <ShowIf condition={showActions !== false} className="broker-card__actions">
