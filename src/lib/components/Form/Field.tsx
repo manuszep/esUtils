@@ -5,7 +5,7 @@ import { FieldInner, KeyedObject } from "../../../index";
 
 export class Field extends Component<KeyedObject> {
   normalizeField(value: string) {
-    return (typeof value !== "undefined" && typeof value.replace !== "undefined") ? value.replace("<", "")
+    return (typeof value !== "undefined" && value !== null && typeof value.replace !== "undefined") ? value.replace("<", "")
       .replace(">", "")
       .replace("&", "") : value;
   }

@@ -10,11 +10,13 @@ import {
 } from "../../../../index";
 
 export type CheckBoxPropsType = {
+  valueOn: any,
+  valueOff: any,
   label: string,
   name: string,
-  fldValue: string,
+  fldValue: string | boolean,
   replacements:  KeyedObject<string>,
-  onChange: (event: any) => void,
+  onChange: (event: any, value: any) => void,
   changeField: (name: string, value: string) => void,
   onClick: (event: any) => void
 }
@@ -22,6 +24,8 @@ export type CheckBoxPropsType = {
 class CheckBoxComponent extends Component<CheckBoxPropsType, {}> {
   render() {
     const {
+      valueOn,
+      valueOff,
       label,
       name,
       fldValue,
@@ -32,6 +36,9 @@ class CheckBoxComponent extends Component<CheckBoxPropsType, {}> {
       onClick
     } = this.props;
 
+    const _valueOn = valueOn || "1";
+    const _valueOff = valueOff || "0";
+
     return (
       <label className="custom-control custom-checkbox">
         <input
@@ -39,11 +46,11 @@ class CheckBoxComponent extends Component<CheckBoxPropsType, {}> {
           className="custom-control-input"
           name={name}
           onClick={onClick}
-          checked={fldValue === "1"}
+          checked={fldValue === _valueOn || fldValue === true}
           onChange={(event) => {
-            changeField(name, fldValue === "1" ? "0" : "1");
+            changeField(name, fldValue === "1" ? _valueOff : _valueOn);
             if (typeof onChange === "function") {
-              onChange(event);
+              onChange(event, fldValue);
             }
           }}
         />

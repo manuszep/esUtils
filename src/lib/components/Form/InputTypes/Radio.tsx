@@ -48,7 +48,7 @@ class RadioComponent extends Component<RadioPropsType, {}> {
           type="radio"
           className="custom-control-input"
           onChange={(event) => {
-            changeField(name, strOptionValue);
+            //changeField(name, strOptionValue);
             if (typeof onChange === "function") {
               onChange(event);
             }
