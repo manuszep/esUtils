@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, FormEvent } from "react";
 import classnames from "classnames";
 
 import {
@@ -25,6 +25,16 @@ export class RadioGroup extends Component<RadioGroupPropsType, {}> {
     }
 
     return null;
+  }
+
+  handleChange(e: FormEvent, onChange: Function) {
+    const t: any = e.currentTarget;
+
+    t.blur();
+
+    if (onChange) {
+      onChange(e);
+    }
   }
 
   renderRadios() {
@@ -56,7 +66,7 @@ export class RadioGroup extends Component<RadioGroupPropsType, {}> {
             name={name}
             value={item.value}
             checked={checked}
-            onChange={onChange}
+            onChange={(e: FormEvent) => this.handleChange(e, onChange)}
             onBlur={onBlur} />
           <span className="custom-control-indicator" />
           <span className={labelClass}>{this.getIcon(item)}<T>{item.label}</T></span>

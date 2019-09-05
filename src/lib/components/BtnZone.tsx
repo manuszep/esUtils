@@ -59,8 +59,7 @@ class BtnZoneComponent extends Component<KeyedObject, KeyedObject> {
         id="btnZonePrimary"
         tag="button"
         className={primaryBtnCls}
-        onMouseUp={(e: MouseEvent) => {this.setState({shouldJump: true}); primaryAction(e);}}
-        onTouchEnd={(e: TouchEvent) => {this.setState({shouldJump: true}); primaryAction(e);}}
+        onClick={(e: MouseEvent) => {this.setState({shouldJump: true}); primaryAction(e);}}
         disabled={disabled}>
         {labelPrimary}
       </T>
@@ -71,8 +70,7 @@ class BtnZoneComponent extends Component<KeyedObject, KeyedObject> {
         id="btnZonePrimaryMobile"
         tag="button"
         className="btn btn-lg btn-axa"
-        onMouseUp={primaryAction}
-        onTouchEnd={primaryAction}
+        onClick={primaryAction}
         disabled={disabled}>
         {labelPrimary}
       </T>
@@ -83,8 +81,7 @@ class BtnZoneComponent extends Component<KeyedObject, KeyedObject> {
         id="btnZoneSecondary"
         tag="button"
         className="btn btn-lg btn-ghost"
-        onClick={() => localSecondaryAction()}
-        onTouchEnd={() => localSecondaryAction()}>
+        onClick={() => localSecondaryAction()}>
         {labelSecondary}
       </T>
     ) : null;
