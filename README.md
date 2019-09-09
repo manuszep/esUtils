@@ -46,6 +46,9 @@ window.appName = {
     "chapter": string
   }
   ```
+- ```typescript
+  Steps = Step[]
+  ```
 
 
 ### Data
@@ -135,6 +138,9 @@ window.appName = {
 
 - ```typescript
   priceFormatter(value: string): string
+  ```
+- ```typescript
+  priceNormalizerFactory(digitsCount?: number, decimalCount?: number): Function
   ```
 - ```typescript
   priceNormalizer(value: string): string
