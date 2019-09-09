@@ -2,7 +2,11 @@
 
 Some methods need to be called to bootstrap the project. These methods should be called in the js file that is first executed.
 
-## appGlobalVarInit(name: string, prefix: string)
+## appGlobalVarInit
+
+```typescript
+  appGlobalVarInit(name: string, prefix: string)
+  ```
 
 Give access to the global variable containing app data
 
@@ -11,7 +15,11 @@ Give access to the global variable containing app data
   ```
 
 
-## initDataLayer(customMethods: KeyedObject<Function> = {})
+## initDataLayer
+
+```typescript
+  initDataLayer(customMethods: KeyedObject<Function> = {})
+  ```
 
 Get the dataLayer ready and set custom methods.
 
@@ -23,10 +31,14 @@ Get the dataLayer ready and set custom methods.
   });
   ```
 
-:link: [See DataLayer documentation](dataLayer.md)
+[See DataLayer documentation](dataLayer.md)
 
 
-## initSteps(steps: Steps)
+## initSteps
+
+```typescript
+  initSteps(steps: Steps)
+  ```
 
 Define the steps list for the app
 
@@ -49,10 +61,15 @@ Define the steps list for the app
   ]);
   ```
 
-:link: [See Steps documentation](steps.md)
+[See Steps documentation](steps.md)
 
 
-## initIcons(icons: KeyedObject<JSX.Element>)
+## initIcons
+
+```typescript
+  initIcons(icons: KeyedObject<JSX.Element>)
+  ```
+
 Append icons to the default set
 
 ```typescript
@@ -65,20 +82,29 @@ Append icons to the default set
     )
   });
   ```
-:link: [See Icon documentation](icon.md)
+[See Icon documentation](icon.md)
 
 
-## initModal(modalContainers: KeyedObject, prefix: string)
+## initModal
+
+```typescript
+  initModal(modalContainers: KeyedObject, prefix: string)
+  ```
+
 Provide modal containers and app prefix
 
 ```typescript
   import * as ModalContainers from "app/components/ModalContainers";
   initModal(ModalContainers, "eBike");
   ```
-:link: [See Modal documentation](modal.md)
+[See Modal documentation](modal.md)
 
 
-## setAppStoreVar(store: any)
+## setAppStoreVar
+
+```typescript
+  setAppStoreVar(store: any)
+  ```
 
 Provide access to the appStore
 
@@ -86,4 +112,4 @@ Provide access to the appStore
   export const appStore = createStore(AppReducer, enhancer);
   setAppStoreVar(appStore);
   ```
-:link: [See GlobalVars documentation](globalVars.md)
+[See GlobalVars documentation](globalVars.md)
