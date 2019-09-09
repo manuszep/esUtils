@@ -29,14 +29,16 @@ class DltComponent extends Component<KeyedObject, KeyedObject> {
   constructor(props: KeyedObject) {
     super(props);
 
-    loadGoogleMapsJs(() => { this.initMap(); });
-
     this.state = {
       "lng": null,
       "lat": null,
       "address": "",
       "cityAddress": ""
     };
+  }
+
+  componentDidMount() {
+    loadGoogleMapsJs(() => { this.initMap(); });
   }
 
   getLatLngFromAddress() {
