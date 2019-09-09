@@ -49,8 +49,10 @@ export class RadioGroup extends Component<RadioGroupPropsType, {}> {
       size
     } = this.props;
 
+    const sizeClass = size.split(" ").map((cls) => { return `custom-radio--${cls}` }).join(" ");
+
     let counter = 0;
-    const clsExt = typeof size !== "undefined" ? `custom-radio--${size}` : null;
+    const clsExt = typeof size !== "undefined" ? sizeClass : null;
     // Loop over each item to generate as many inputs as there are items
     return items.map((item, key) => {
       const checked = item.value === value;
