@@ -1,5 +1,8 @@
 # esUtils
 
+:link: [See documentation](https://manuszep.github.io/esUtils/)
+
+
 ## Project init
 
 Some methods need to be called to bootstrap the project. These methods should be called in the js file that is first executed.
