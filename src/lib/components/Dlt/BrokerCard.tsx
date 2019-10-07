@@ -44,7 +44,7 @@ export class BrokerCard extends Component<KeyedObject> {
           <T
             tag="button"
             className={btnClassName}
-            onClick={(e: Event) => actionHandler(e)}>
+            onClick={(e: any) => actionHandler(e)}>
             {actionLabel}
           </T>
         </ShowIf>

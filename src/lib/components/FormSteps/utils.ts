@@ -1,4 +1,4 @@
-import { Step, Steps } from "../index";
+import { Step, Steps } from "./types";
 
 let stepsList: Steps;
 
@@ -29,7 +29,8 @@ export const getPreviousStep = (step: Step): Step | null => {
 };
 
 export const getLastStep = (): Step => {
-  return stepsList[stepsList.length - 1];
+  const normalSteps = stepsList.filter(step => step.number < 100);
+  return normalSteps[normalSteps.length - 1];
 };
 
 export const getStepInNumberFormat = (stepString: string): string => {

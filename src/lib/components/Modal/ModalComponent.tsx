@@ -25,7 +25,8 @@ export type ModalComponentPropsType = {
   modalContentPath: string,
   modalProps: KeyedObject,
   closeModal: Function,
-  show: boolean
+  show: boolean,
+  afterCloseAction: Function
 }
 
 export type ModalComponentStateType = {
@@ -66,7 +67,7 @@ class ModalComponent extends ReactComponent<ModalComponentPropsType, ModalCompon
   }
 
   render() {
-    const { show, closeModal } = this.props;
+    const { show, closeModal, modalProps } = this.props;
     const cls = classNames("modal", "fade", { "show": show });
     if (!show) return null;
     return (
@@ -75,8 +76,18 @@ class ModalComponent extends ReactComponent<ModalComponentPropsType, ModalCompon
           role="button"
           tabIndex={0}
           className="modal-backdrop"
-          onClick={() => closeModal()}
-          onKeyPress={() => closeModal()} />
+          onClick={() => {
+            closeModal();
+            if (typeof modalProps.afterCloseAction === "function") {
+              modalProps.afterCloseAction();
+            }
+          }}
+          onKeyPress={() => {
+            closeModal();
+            if (typeof modalProps.afterCloseAction === "function") {
+              modalProps.afterCloseAction();
+            }
+          }} />
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             {this.renderModalContent()}

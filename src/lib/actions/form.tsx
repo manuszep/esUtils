@@ -2,7 +2,7 @@ import { Dispatch } from "react";
 import { untouch } from "redux-form";
 import { AnyAction } from "redux";
 import axios from "axios/index";
-import querystring from "query-string-es5-with-types";
+import querystring from "query-string-for-all";
 
 import {
   KeyedObject, getEndPoints, getReduxStore,
@@ -79,6 +79,16 @@ export const unTouchMultipleFields = (fieldNames: string[]) => {
 export function saveLeadToBrokerReason(leadToBrokerReason: any) {
   const fieldsAndValues = {
     "LEAD_TO_BROKER_REASON": leadToBrokerReason
+  };
+  axios.post(`${getEndPoints().saveBlockedInFlowReason}&v=${(new Date()).valueOf()}`, querystring.stringify(fieldsAndValues))
+    .catch((err) => {
+      Promise.reject(err);
+    });
+}
+
+export function saveBlockedInFlowReason(blockedInFlowReason: any) {
+  const fieldsAndValues = {
+    "BLOCKED_IN_FLOW_REASON": blockedInFlowReason
   };
   axios.post(`${getEndPoints().saveBlockedInFlowReason}&v=${(new Date()).valueOf()}`, querystring.stringify(fieldsAndValues))
     .catch((err) => {

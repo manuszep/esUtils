@@ -14,7 +14,8 @@ export type RadioGroupPropsType = {
   onChange: (event: any) => void,
   onBlur: (event: any) => void,
   mode: string,
-  size: string
+  size: string,
+  noprefix: any
 }
 
 // Wrap the component in a dynamic ReduxField.
@@ -46,7 +47,8 @@ export class RadioGroup extends Component<RadioGroupPropsType, {}> {
       onBlur,
       name,
       mode,
-      size
+      size,
+      noprefix
     } = this.props;
 
     const sizeClass = size.split(" ").map((cls) => { return `custom-radio--${cls}` }).join(" ");
@@ -71,7 +73,7 @@ export class RadioGroup extends Component<RadioGroupPropsType, {}> {
             onChange={(e: FormEvent) => this.handleChange(e, onChange)}
             onBlur={onBlur} />
           <span className="custom-control-indicator" />
-          <span className={labelClass}>{this.getIcon(item)}<T>{item.label}</T></span>
+          <span className={labelClass}>{this.getIcon(item)}<T noprefix={noprefix}>{item.label}</T></span>
         </label>
       );
     });

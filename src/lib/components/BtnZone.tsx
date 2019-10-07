@@ -9,7 +9,8 @@ import {
   gotoPreviousStep as gotoPreviousStepAction,
   gotoStep as gotoStepAction,
   handleGoToPreviousStep as handleGoToPreviousStepAction,
-  KeyedObject
+  KeyedObject,
+  submitButtonDisabled
 } from "../../index";
 
 class BtnZoneComponent extends Component<KeyedObject, KeyedObject> {
@@ -19,6 +20,12 @@ class BtnZoneComponent extends Component<KeyedObject, KeyedObject> {
     this.state = {
       shouldJump: false
     }
+  }
+
+  componentDidMount() {
+    const { step, enableButton } = this.props;
+
+    enableButton(step);
   }
 
   componentDidUpdate(prevProps: KeyedObject) {
@@ -47,20 +54,27 @@ class BtnZoneComponent extends Component<KeyedObject, KeyedObject> {
       remark,
       saveButton,
       mobileSave,
-      disabled,
       className,
-      showModal
+      showModal,
+      submitButtonDisabledValue,
+      disableButton,
+      disabled,
+      step
     } = this.props;
+    const isDisabled = disabled || submitButtonDisabledValue;
     const localSecondaryAction = (typeof secondaryAction !== 'undefined') ? secondaryAction : gotoPreviousStep;
-    const primaryAction = (disabled) ? null : submitEvent;
+    const primaryAction = (submitButtonDisabledValue) ? () => { return; } : (e: any) => {
+      disableButton(step);
+      submitEvent(e);
+    };
     const primaryBtnCls = classnames("btn btn-lg btn-axa", "cy-next");
     const btnPrimary = (labelPrimary) ? (
       <T
         id="btnZonePrimary"
         tag="button"
         className={primaryBtnCls}
-        onClick={(e: MouseEvent) => {this.setState({shouldJump: true}); primaryAction(e);}}
-        disabled={disabled}>
+        onClick={(e: any) => {this.setState({shouldJump: true}); primaryAction(e);}}
+        disabled={isDisabled}>
         {labelPrimary}
       </T>
     ) : null;
@@ -71,7 +85,7 @@ class BtnZoneComponent extends Component<KeyedObject, KeyedObject> {
         tag="button"
         className="btn btn-lg btn-axa"
         onClick={primaryAction}
-        disabled={disabled}>
+        disabled={isDisabled}>
         {labelPrimary}
       </T>
     ) : null;
@@ -126,7 +140,8 @@ const mapStateToProps = (state: KeyedObject, props: KeyedObject) => {
   return {
     "currentStep": state.pageState.currentStep,
     "direction": state.pageState.direction,
-    "hasError": hasError
+    "hasError": hasError,
+    "submitButtonDisabledValue": state.pageState.stepStates[props.step].submitButtonDisabled
   };
 };
 
@@ -137,7 +152,9 @@ const mapDispatchToProps = (dispatch: any) => ({
     dispatch(gotoPreviousStepAction());
   },
   "gotoStep": (stepNumber: string) => dispatch(gotoStepAction(stepNumber)),
-  "showModal": (modalID: string) => dispatch(showModalAction(modalID))
+  "showModal": (modalID: string) => dispatch(showModalAction(modalID)),
+  "disableButton": (step: string) => dispatch(submitButtonDisabled(step, true)),
+  "enableButton": (step: string) => dispatch(submitButtonDisabled(step, false))
 });
 
 export const BtnZone = connect(mapStateToProps, mapDispatchToProps)(BtnZoneComponent);

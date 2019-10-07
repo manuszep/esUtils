@@ -247,6 +247,11 @@ query-string-es5-with-types@^6.2.2:
     decode-uri-component "^0.2.0"
     strict-uri-encode "^2.0.0"
 
+query-string-for-all@^6.8.3:
+  version "6.8.3"
+  resolved "https://registry.yarnpkg.com/query-string-for-all/-/query-string-for-all-6.8.3.tgz#708e2fdd815924f2071a6efaea2d587211875d19"
+  integrity sha512-hoDx7IpD2YPYtRlXjtqgNS2wnmTHEUeTO9EdRmK9LuBDK77F6Ib3ip23AML+2mUgDQZob2ZJNc1Huj/dVk2xMA==
+
 query-string@^6.8.1:
   version "6.8.1"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.8.1.tgz#62c54a7ef37d01b538c8fd56f95740c81d438a26"

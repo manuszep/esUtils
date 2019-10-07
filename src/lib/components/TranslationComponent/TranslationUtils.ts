@@ -45,7 +45,7 @@ export const getTranslationFromLabelDictionary = (key: any, labelDictionary: Key
 
   if (typeof key !== "string") return key;
 
-  const fullKey = `${prefix}${key.toUpperCase()}`;
+  const fullKey = `${prefix}${key}`;
 
   try {
     return (key && typeof labelDictionary[fullKey] !== "undefined")

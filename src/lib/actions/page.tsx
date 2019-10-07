@@ -12,6 +12,7 @@ export const GOTO_NEXT_STEP = "GOTO_NEXT_STEP";
 export const GOTO_PREVIOUS_STEP = "GOTO_PREVIOUS_STEP";
 export const GOTO_STEP = "GOTO_STEP";
 export const SUBMIT_STEP = "SUBMIT_STEP";
+export const UNSUBMIT_STEP = "UNSUBMIT_STEP";
 export const VALIDATE_STEP = "VALIDATE_STEP";
 export const ACTIVATE_STEP = "ACTIVATE_STEP";
 export const ACTIVATE_LOADING = "ACTIVATE_LOADING";
@@ -66,6 +67,13 @@ export const gotoStep = (stepNumber: string): {type: string, stepNumber: string}
 export const submitStep = (stepNumber: string): {type: string, stepNumber: string} => {
   return {
     "type": SUBMIT_STEP,
+    "stepNumber": stepNumber
+  };
+};
+
+export const unsubmitStep = (stepNumber: string): {type: string, stepNumber: string} => {
+  return {
+    "type": UNSUBMIT_STEP,
     "stepNumber": stepNumber
   };
 };

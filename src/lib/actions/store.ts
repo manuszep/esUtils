@@ -1,5 +1,5 @@
 import axios from "axios";
-import querystring from "query-string-es5-with-types";
+import querystring from "query-string-for-all";
 
 import { getEndPoints } from "../../index";
 

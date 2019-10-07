@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import classnames from "classnames";
 
 import { Icon, KeyedObject } from "../../../index";
+import { FormStepPropsType } from "./types";
 
 const CLASS_FORM_STEPS = 'axa-form-steps';
 const CLASS_FORM_STEP = `${CLASS_FORM_STEPS}__step`;
@@ -12,17 +13,6 @@ const CLASS_FORM_STEP_DONE = `${CLASS_FORM_STEP}--done`;
 const CLASS_FORM_STEP_PRICING = `${CLASS_FORM_STEP}--pricing`;
 const CLASS_FORM_STEP_NUMBER = `${CLASS_FORM_STEP}__number`;
 const CLASS_FORM_CY_STEP_ACTIVE = 'cy-active-step';
-
-export type FormStepPropsType = {
-  current: number,
-  notifyActiveStep: Function,
-  index: number,
-  start: number,
-  end: number,
-  pricing: boolean,
-  key: any,
-  label: string
-}
 
 export class FormStep extends Component<FormStepPropsType, {}> {
   componentDidMount(): void {

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, AllHTMLAttributes } from "react";
 import { connect } from "react-redux";
 
 import {
@@ -7,10 +7,18 @@ import {
   KeyedObject
 } from "../../../index";
 
+interface PassedProps extends React.Props<any> {
+  tag?: string,
+  labels?: {[k: string]: string},
+  replacements?: {[k: string]: string},
+  noprefix?: boolean,
+  dispatch?: any
+}
+
 /**
  * This is a simple wrapper to inject HTML translated content in JSX.
  */
-class TranslationComponent extends Component<KeyedObject, {}> {
+class TranslationComponent extends Component<AllHTMLAttributes<any> & PassedProps, {}> {
   getLabelValue(noprefix = true) {
     const { children, labels } = this.props;
     const currentLabels = labels || {};
@@ -21,10 +29,10 @@ class TranslationComponent extends Component<KeyedObject, {}> {
     const {
       tag,
       children,
-      dispatch,
       labels,
       replacements,
       noprefix,
+      dispatch,
       ...rest
     } = this.props;
 

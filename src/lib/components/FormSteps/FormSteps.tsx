@@ -2,22 +2,11 @@ import React, { Component } from "react";
 
 import { KeyedObject } from "../../../index";
 import { FormStep } from "./FormStep";
+import { FormStepsPropsType, FormStepsStateType } from "./types";
 
 const CLASS_FORM_STEPS = 'axa-form-steps';
 const CLASS_FORM_STEPS_LABEL = `${CLASS_FORM_STEPS}__label`;
 const CLASS_FORM_STEPS_WRAPPER = `${CLASS_FORM_STEPS}__wrapper`;
-
-export type FormStepsPropsType = {
-  current: number,
-  steps: KeyedObject[],
-  shownStep: number,
-  currentLabel: string
-}
-
-export type FormStepsStateType = {
-  shownStep: number,
-  activeStep: number
-}
 
 export class FormSteps extends Component<FormStepsPropsType, FormStepsStateType> {
   constructor(props: FormStepsPropsType) {

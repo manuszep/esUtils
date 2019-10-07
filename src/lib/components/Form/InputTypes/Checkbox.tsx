@@ -18,7 +18,8 @@ export type CheckBoxPropsType = {
   replacements:  KeyedObject<string>,
   onChange: (event: any, value: any) => void,
   changeField: (name: string, value: string) => void,
-  onClick: (event: any) => void
+  onClick: (event: any) => void,
+  noprefix: any
 }
 
 class CheckBoxComponent extends Component<CheckBoxPropsType, {}> {
@@ -33,7 +34,8 @@ class CheckBoxComponent extends Component<CheckBoxPropsType, {}> {
       children,
       onChange,
       changeField,
-      onClick
+      onClick,
+      noprefix
     } = this.props;
 
     const _valueOn = valueOn || "1";
@@ -55,7 +57,7 @@ class CheckBoxComponent extends Component<CheckBoxPropsType, {}> {
           }}
         />
         <span className="custom-control-indicator" />
-        <T className="custom-control-description" replacements={replacements}>{label}</T>
+        <T className="custom-control-description" replacements={replacements} noprefix={noprefix}>{label}</T>
         {children}
       </label>
     );

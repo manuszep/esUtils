@@ -233,8 +233,7 @@ class AddressFieldComponent extends Component<KeyedObject, KeyedObject> {
       updateStreets,
       autocompleteCities,
       autocompleteStreets,
-      autocompleteFullData,
-      fldParentOrStudent
+      autocompleteFullData
     } = this.props;
 
     const tagId = id || name;

@@ -4,6 +4,7 @@ import {
   capitalizeFirstLetter,
   getGuid,
   getAppGlobalVar,
+  getAppPrefix,
   KeyedObject,
   getStepById
 } from "../index";
@@ -19,7 +20,7 @@ class DataLayer {
     window.tc_vars = window.tc_vars || {};
 
     this.dataLayer = {
-      "flow": "studentTravel",
+      "flow": getAppPrefix(),
       "env_work": window.tc_vars.env_work,
       "language": window.tc_vars.language
     };
@@ -49,8 +50,8 @@ class DataLayer {
   setStep(step: string, state: KeyedObject) {
     const stepDetails = getStepById(step);
     if (typeof stepDetails !== "undefined") {
-      this.dataLayer.studenttravel_funnel_step = stepDetails.pageTitle;
-      this.dataLayer.studenttravel_funnel_chapter = stepDetails.chapter;
+      this.dataLayer[`${getAppPrefix()}_funnel_step`] = stepDetails.pageTitle;
+      this.dataLayer[`${getAppPrefix()}_funnel_chapter`] = stepDetails.chapter;
     }
 
     const method = `setDataFor${capitalizeFirstLetter(step)}`;
