@@ -14,8 +14,10 @@ export const getStepById = (id: string): Step | undefined => {
   return stepsList.find(loopedStep => loopedStep.ID === id);
 };
 
-export const getNextStep = (step: Step): Step | null => {
-  const { index } = step;
+export const getNextStep = (step: Step | string | undefined): Step | null => {
+  const actualStep = typeof step === "string" ? getStepById(step) : step;
+  if (typeof actualStep === "undefined") return null;
+  const { index } = actualStep;
 
   if (stepsList.length === index + 1) return null;
   return stepsList[index + 1];

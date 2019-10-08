@@ -6,7 +6,9 @@ import {
   getAppGlobalVar,
   getAppPrefix,
   KeyedObject,
-  getStepById
+  getStepById,
+  getNextStep,
+  Step
 } from "../index";
 
 let dataLayerInstance: DataLayer;
@@ -47,20 +49,19 @@ class DataLayer {
     }
   }
 
-  setStep(step: string, state: KeyedObject) {
-    const stepDetails = getStepById(step);
-    if (typeof stepDetails !== "undefined") {
-      this.dataLayer[`${getAppPrefix()}_funnel_step`] = stepDetails.pageTitle;
-      this.dataLayer[`${getAppPrefix()}_funnel_chapter`] = stepDetails.chapter;
+  setStep(step: Step | null, state: KeyedObject) {
+    if (typeof step !== "undefined" && step !== null) {
+      this.dataLayer[`${getAppPrefix()}_funnel_step`] = step.pageTitle;
+      this.dataLayer[`${getAppPrefix()}_funnel_chapter`] = step.chapter;
+
+      const method = `setDataFor${capitalizeFirstLetter(step.ID)}`;
+
+      if (typeof this.customMethods[method] === "function") {
+        this.customMethods[method](state.form.app.values, state);
+      }
+
+      this.pushData();
     }
-
-    const method = `setDataFor${capitalizeFirstLetter(step)}`;
-
-    if (typeof this.customMethods[method] === "function") {
-      this.customMethods[method](state.form.app.values, state);
-    }
-
-    this.pushData();
   }
 
   triggerConversion(state: KeyedObject): void {
@@ -100,14 +101,15 @@ export const dataLayerMiddleware: Middleware = ({ getState }: MiddlewareAPI) => 
   return next => (action) => {
     const returnValue = next(action);
     const state = getState();
+    const currentStep = getStepById(state.currentStep);
+    const nextStep = getNextStep(currentStep);
 
     if (typeof window.dataLayer === "undefined") {
       dataLayerInstance.setLanguage(state.pageState.lang);
     }
 
-    if (action.type === "SUBMIT_STEP") {
-      const step = action.stepNumber;
-      dataLayerInstance.setStep(step, state);
+    if (action.type === "GOTO_NEXT_STEP") {
+      dataLayerInstance.setStep(nextStep, state);
     }
 
     if (action.type === "REFRESH_OGONE_DATA_FIELDS") {
