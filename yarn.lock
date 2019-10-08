@@ -239,14 +239,6 @@ prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2,
     object-assign "^4.1.1"
     react-is "^16.8.1"
 
-query-string-es5-with-types@^6.2.2:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/query-string-es5-with-types/-/query-string-es5-with-types-6.2.2.tgz#75449ad14de235e5b4450e55fa3f357ef3793ffc"
-  integrity sha512-ugYn+UFxFt2gNA491uyjwb2HFhnkiCvHQWNY9ddg2nymkx2UTDs7Ju0lTCB45lrA4JcOr1sK4WDcu6L6C9sl8A==
-  dependencies:
-    decode-uri-component "^0.2.0"
-    strict-uri-encode "^2.0.0"
-
 query-string-for-all@^6.8.3:
   version "6.8.3"
   resolved "https://registry.yarnpkg.com/query-string-for-all/-/query-string-for-all-6.8.3.tgz#708e2fdd815924f2071a6efaea2d587211875d19"

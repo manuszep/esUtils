@@ -22,6 +22,7 @@ export type PhoneFieldPropsType = {
   lineNumberTouched: boolean,
   addPrefixToPhone: Function,
   numberFieldValue: string,
+  help: string,
   label: string,
   name: string,
   onChange: Function
@@ -241,8 +242,8 @@ class PhoneFieldComponent extends Component<PhoneFieldPropsType, KeyedObject> {
             onKeyPress={(e: any) => this.handleKeyPress(e)}
             onBlur={(e: any) => this.updatePhoneNumber(e)}
             onChange={onChange} />
+          <FieldTooltip help={help} />
         </div>
-        <FieldTooltip help={help} />
         {errorMessage}
       </div>
     );
