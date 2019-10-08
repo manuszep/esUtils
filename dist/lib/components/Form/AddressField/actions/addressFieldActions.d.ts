@@ -1,0 +1,10 @@
+import { Dispatch } from "redux";
+export declare const SET_CITY_AUTOCOMPLETE = "SET_CITY_AUTOCOMPLETE";
+export declare const SET_STREET_AUTOCOMPLETE = "SET_STREET_AUTOCOMPLETE";
+export declare const SET_AUTOCOMPLETE_FULL_DATA = "SET_AUTOCOMPLETE_FULL_DATA";
+export declare const NORMALIZE_POSTAL_ADDRESS_PROPOSALS = "NORMALIZE_POSTAL_ADDRESS_PROPOSALS";
+export declare const SET_NON_NORMALIZED_ADDRESS = "SET_NON_NORMALIZED_ADDRESS";
+export declare const SET_STREET_NR = "SET_STREET_NR";
+export declare const SET_BOX_NR = "SET_BOX_NR";
+export declare const updateAutoCompleteCities: (postalCodeText: string, townText?: string) => (dispatch: Dispatch<import("redux").AnyAction>, getState: Function) => void;
+export declare const updateAutoCompleteStreets: (postalCodeText: string, cityText: string, streetText?: string) => (dispatch: Dispatch<import("redux").AnyAction>, getState: Function) => void;

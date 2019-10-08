@@ -1,0 +1,11 @@
+/// <reference types="react" />
+export declare const required: (value: any) => JSX.Element | undefined;
+export declare const isValidDate: (value: string) => boolean;
+export declare const dateAfterToday: (value: string) => boolean | JSX.Element | undefined;
+export declare const dateWithinYear: (value: string) => boolean | JSX.Element | undefined;
+export declare const validDate: (value: string) => boolean | JSX.Element | undefined;
+export declare const dateNotBefore1900: (value: string) => JSX.Element | undefined;
+export declare const dateNotInFuture: (value: string) => JSX.Element | undefined;
+export declare const validEmail: (value: string) => JSX.Element | undefined;
+export declare const validPhoneLogic: (phoneNumber: string) => boolean;
+export declare const validPhone: (value: string) => JSX.Element | undefined;

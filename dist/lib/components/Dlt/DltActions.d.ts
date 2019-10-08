@@ -1,0 +1,10 @@
+import React from "react";
+export declare const CHECK_PROSPECT = "CHECK_PROSPECT";
+export declare const SET_BROKER_IBP = "SET_BROKER_IBP";
+export declare const RESET_POINTS_OF_SALE = "RESET_POINTS_OF_SALE";
+export declare const resetAgent: () => (dispatch: React.Dispatch<any>) => void;
+export declare const resetPointsOfSale: () => (dispatch: React.Dispatch<any>) => void;
+export declare const changeAgentReduxFields: (id: string, name: string, street: string, streetNumber: string, postalCode: string, city: string, email: string, emailLead: string, fax: string, telephone: string, website: string, cbfaNumber: string, insuranceFederationCode: string, mainNetworkCode: string, producerNumber: string) => (dispatch: React.Dispatch<any>) => void;
+export declare const handleProspectSituationResponse: (response: any) => (dispatch: React.Dispatch<any>, getState: Function) => void;
+export declare const getBrokerIBPList: () => (dispatch: React.Dispatch<any>) => Promise<void>;
+export declare const retrieveProducerNumber: () => (dispatch: React.Dispatch<any>, getState: Function) => Promise<void>;
