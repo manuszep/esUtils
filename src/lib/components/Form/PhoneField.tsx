@@ -9,7 +9,8 @@ import {
   phoneCountriesList,
   wrapMapStateToProps,
   FieldInline,
-  KeyedObject
+  KeyedObject,
+  FieldTooltip
 } from "../../../index";
 
 export type PhoneFieldPropsType = {
@@ -192,7 +193,8 @@ class PhoneFieldComponent extends Component<PhoneFieldPropsType, KeyedObject> {
     const {
       label,
       name,
-      onChange
+      onChange,
+      help
     } = this.props;
 
     const {
@@ -240,6 +242,7 @@ class PhoneFieldComponent extends Component<PhoneFieldPropsType, KeyedObject> {
             onBlur={(e: any) => this.updatePhoneNumber(e)}
             onChange={onChange} />
         </div>
+        <FieldTooltip help={help} />
         {errorMessage}
       </div>
     );
