@@ -49,7 +49,7 @@ class DataLayer {
     }
   }
 
-  setStep(step: Step | null, state: KeyedObject) {
+  setStep(step: Step | undefined | null, state: KeyedObject) {
     if (typeof step !== "undefined" && step !== null) {
       this.dataLayer[`${getAppPrefix()}_funnel_step`] = step.pageTitle;
       this.dataLayer[`${getAppPrefix()}_funnel_chapter`] = step.chapter;
@@ -101,15 +101,14 @@ export const dataLayerMiddleware: Middleware = ({ getState }: MiddlewareAPI) => 
   return next => (action) => {
     const returnValue = next(action);
     const state = getState();
-    const currentStep = getStepById(state.currentStep);
-    const nextStep = getNextStep(currentStep);
+    const currentStep = getStepById(state.pageState.currentStep);
 
     if (typeof window.dataLayer === "undefined") {
       dataLayerInstance.setLanguage(state.pageState.lang);
     }
 
     if (action.type === "GOTO_NEXT_STEP") {
-      dataLayerInstance.setStep(nextStep, state);
+      dataLayerInstance.setStep(currentStep, state);
     }
 
     if (action.type === "REFRESH_OGONE_DATA_FIELDS") {
