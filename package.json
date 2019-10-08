@@ -30,10 +30,11 @@
     "react-ga": "^2.6.0",
     "react-redux": "^7.1.0",
     "redux-form": "^8.2.4",
+    "rimraf": "^3.0.0",
     "typescript": "^3.5.1"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "rimraf dist && tsc"
   },
   "dependencies": {
     "moment": "^2.24.0"
