@@ -16,6 +16,17 @@ exports.getCurrentDate = function () {
 exports.getDifferenceInYears = function (firstDate, secondDate) {
     return firstDate.diff(secondDate, 'years');
 };
+exports.getAge = function (dob, defaultAge) {
+    if (dob !== undefined) {
+        var dateParts = dob.split("/");
+        var dateObject = new Date(+dateParts[2], Number(dateParts[1]) - 1, +dateParts[0]);
+        var diffMs = Date.now() - dateObject.getTime();
+        var ageDt = new Date(diffMs);
+        var age = Math.abs(ageDt.getUTCFullYear() - 1970);
+        return age;
+    }
+    return defaultAge;
+};
 exports.getIsAdult = function (dob) {
     var currentDate = exports.getCurrentDate();
     return exports.getDifferenceInYears(currentDate, exports.parseDate(dob)) >= 18;
