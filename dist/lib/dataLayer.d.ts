@@ -5,7 +5,7 @@ declare class DataLayer {
     isUnique: [];
     customMethods: KeyedObject<Function>;
     constructor(customMethods?: KeyedObject<Function>);
-    addData(data: KeyedObject, step: KeyedObject): void;
+    addData(data: KeyedObject): void;
     pushData(): void;
     setStep(step: Step | undefined | null, state: KeyedObject): void;
     triggerConversion(state: KeyedObject): void;

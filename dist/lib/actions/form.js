@@ -72,7 +72,7 @@ function saveLeadToBrokerReason(leadToBrokerReason) {
     var fieldsAndValues = {
         "LEAD_TO_BROKER_REASON": leadToBrokerReason
     };
-    index_1.default.post(index_2.getEndPoints().saveBlockedInFlowReason + "&v=" + (new Date()).valueOf(), query_string_for_all_1.default.stringify(fieldsAndValues))
+    return index_1.default.post(index_2.getEndPoints().saveBlockedInFlowReason + "&v=" + (new Date()).valueOf(), query_string_for_all_1.default.stringify(fieldsAndValues))
         .catch(function (err) {
         Promise.reject(err);
     });
