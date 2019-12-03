@@ -5,29 +5,25 @@ var dataLayerInstance;
 var DataLayer = /** @class */ (function () {
     function DataLayer(customMethods) {
         if (customMethods === void 0) { customMethods = {}; }
-        window.tc_vars = window.tc_vars || {};
+        var gVar = index_1.getAppGlobalVar();
         this.dataLayer = {
             "flow": index_1.getAppPrefix(),
-            "env_work": window.tc_vars.env_work,
-            "language": window.tc_vars.language
+            "env_work": window.dataLayerConfig.env_work,
+            "language": window.dataLayerConfig.language,
+            "u": gVar.u
         };
         this.isUnique = [];
         this.customMethods = customMethods;
+        this.pushData();
     }
-    DataLayer.prototype.addData = function (data, step) {
+    DataLayer.prototype.addData = function (data) {
         var _this = this;
-        this.dataLayer.page_title = String(step);
         Object.keys(data).forEach(function (key) {
             _this.dataLayer[key] = data[key];
         });
     };
     DataLayer.prototype.pushData = function () {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push(Object.assign({}, this.dataLayer));
-        if (typeof window.tc_vars !== "undefined" && typeof window.tC !== "undefined") {
-            window.tc_vars = Object.assign({}, this.dataLayer);
-            window.tC.container.reload();
-        }
+        window.dataLayer.push(Object.assign({ 'event': 'ecommerce' }, this.dataLayer));
     };
     DataLayer.prototype.setStep = function (step, state) {
         if (typeof step !== "undefined" && step !== null) {
@@ -35,7 +31,8 @@ var DataLayer = /** @class */ (function () {
             this.dataLayer[index_1.getAppPrefix() + "_funnel_chapter"] = step.chapter;
             var method = "setDataFor" + index_1.capitalizeFirstLetter(step.ID);
             if (typeof this.customMethods[method] === "function") {
-                this.customMethods[method](state.form.app.values, state);
+                var data = this.customMethods[method](state.form.app.values);
+                this.addData(data);
             }
             this.pushData();
         }
@@ -45,6 +42,7 @@ var DataLayer = /** @class */ (function () {
         if ((typeof appGlobalVar.paymentState !== "undefined" && appGlobalVar.paymentState === "accepted")
             || appGlobalVar.flowCompleted) {
             window.dataLayer.push({
+                'event': 'ecommerce',
                 'ecommerce': {
                     'purchase': {
                         "actionField": {
@@ -73,11 +71,10 @@ exports.getDataLayer = function () {
 exports.dataLayerMiddleware = function (_a) {
     var getState = _a.getState;
     return function (next) { return function (action) {
-        var returnValue = next(action);
         var state = getState();
         var currentStep = index_1.getStepById(state.pageState.currentStep);
-        if (typeof window.dataLayer === "undefined") {
-            dataLayerInstance.setLanguage(state.pageState.lang);
+        if (action.type === "SWITCH_LANG") {
+            dataLayerInstance.setLanguage(action.lang);
         }
         if (action.type === "GOTO_NEXT_STEP") {
             dataLayerInstance.setStep(currentStep, state);
@@ -85,6 +82,6 @@ exports.dataLayerMiddleware = function (_a) {
         if (action.type === "REFRESH_OGONE_DATA_FIELDS") {
             dataLayerInstance.triggerConversion(state);
         }
-        return returnValue;
+        return next(action);
     }; };
 };

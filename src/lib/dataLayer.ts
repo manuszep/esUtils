@@ -19,34 +19,28 @@ class DataLayer {
   customMethods: KeyedObject<Function>;
 
   constructor(customMethods: KeyedObject<Function> = {}) {
-    window.tc_vars = window.tc_vars || {};
+    const gVar = getAppGlobalVar();
 
     this.dataLayer = {
       "flow": getAppPrefix(),
-      "env_work": window.tc_vars.env_work,
-      "language": window.tc_vars.language
+      "env_work": window.dataLayerConfig.env_work,
+      "language": window.dataLayerConfig.language,
+      "u": gVar.u
     };
 
     this.isUnique = [];
     this.customMethods = customMethods;
+    this.pushData();
   }
 
-  addData(data: KeyedObject, step: KeyedObject): void {
-    this.dataLayer.page_title = String(step);
-
+  addData(data: KeyedObject): void {
     Object.keys(data).forEach((key) => {
       this.dataLayer[key] = data[key];
     });
   }
 
   pushData(): void {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(Object.assign({}, this.dataLayer));
-
-    if (typeof window.tc_vars !== "undefined" && typeof window.tC !== "undefined") {
-      window.tc_vars = Object.assign({}, this.dataLayer);
-      window.tC.container.reload();
-    }
+    window.dataLayer.push(Object.assign({'event': 'ecommerce'}, this.dataLayer));
   }
 
   setStep(step: Step | undefined | null, state: KeyedObject) {
@@ -57,7 +51,8 @@ class DataLayer {
       const method = `setDataFor${capitalizeFirstLetter(step.ID)}`;
 
       if (typeof this.customMethods[method] === "function") {
-        this.customMethods[method](state.form.app.values, state);
+        const data = this.customMethods[method](state.form.app.values);
+        this.addData(data);
       }
 
       this.pushData();
@@ -70,6 +65,7 @@ class DataLayer {
       (typeof appGlobalVar.paymentState !== "undefined" && appGlobalVar.paymentState === "accepted")
       || appGlobalVar.flowCompleted) {
       window.dataLayer.push({
+        'event': 'ecommerce',
         'ecommerce': {
           'purchase': {
             "actionField": {
@@ -99,12 +95,11 @@ export const getDataLayer = (): DataLayer => {
 
 export const dataLayerMiddleware: Middleware = ({ getState }: MiddlewareAPI) => {
   return next => (action) => {
-    const returnValue = next(action);
     const state = getState();
     const currentStep = getStepById(state.pageState.currentStep);
 
-    if (typeof window.dataLayer === "undefined") {
-      dataLayerInstance.setLanguage(state.pageState.lang);
+    if (action.type === "SWITCH_LANG") {
+      dataLayerInstance.setLanguage(action.lang);
     }
 
     if (action.type === "GOTO_NEXT_STEP") {
@@ -115,6 +110,6 @@ export const dataLayerMiddleware: Middleware = ({ getState }: MiddlewareAPI) => 
       dataLayerInstance.triggerConversion(state);
     }
 
-    return returnValue;
+    return next(action);
   };
 };

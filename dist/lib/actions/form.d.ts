@@ -10,5 +10,5 @@ export declare const clearField: (fieldName: string) => (dispatch: Dispatch<any>
 export declare const clearMultipleFields: (fields: string[]) => (dispatch: Dispatch<any>) => void;
 export declare const unTouchField: (fieldName: string) => (dispatch: Dispatch<any>) => void;
 export declare const unTouchMultipleFields: (fieldNames: string[]) => (dispatch: Dispatch<any>) => void;
-export declare function saveLeadToBrokerReason(leadToBrokerReason: any): void;
+export declare function saveLeadToBrokerReason(leadToBrokerReason: any): Promise<void | import("axios").AxiosResponse<any>>;
 export declare function saveBlockedInFlowReason(blockedInFlowReason: any): void;
