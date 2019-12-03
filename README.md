@@ -3,6 +3,17 @@
 :link: [See documentation](https://manuszep.github.io/esUtils/)
 
 
+## Update & publish
+
+- Setup NPM token in ~/.profile or ~/.bash_profile :
+```
+export NPM_TOKEN="0000-00000-00000-00000-00000"
+```
+
+- before each git commit, run ```yarn build```
+- before deploy, run ```yarn build```, increase version in package.json, git commit and ```npm publish```
+
+
 ## Project init
 
 Some methods need to be called to bootstrap the project. These methods should be called in the js file that is first executed.
