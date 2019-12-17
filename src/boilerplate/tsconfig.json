@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "strict": true,
+    "target": "es6",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "baseUrl": "./src",
+    "paths": {
+      "react-dom": ["@hot-loader/react-dom"],
+      "@app/*": ["*"]
+    },
+    "lib":[
+      "es2015",
+      "dom"
+    ],
+  }
+}

@@ -1,0 +1,80 @@
+#!/bin/bash
+# Creates boilerplate for React Component
+cd src/lib/components
+
+name="$1"
+nameLower=$(echo "$name" | tr '[:upper:]' '[:lower:]')
+nameUpper=$(echo "$name" | tr '[:lower:]' '[:upper:]')
+
+mkdir Axa$1
+cd Axa$1
+touch index.tsx
+touch $1.scss
+touch types.d.ts
+touch reducer.ts
+
+echo "import React, { Component, AllHTMLAttributes } from \"react\";" >> index.tsx
+echo "import { Dispatch } from \"redux\";" >> index.tsx
+echo "import { connect } from \"react-redux\";" >> index.tsx
+echo "" >> index.tsx
+echo "import { axaStateTypeFor${name} } from \"./types\";" >> index.tsx
+echo "import \"./${name}.scss\";" >> index.tsx
+echo "" >> index.tsx
+echo "interface PassedProps extends React.Props<any> {" >> index.tsx
+echo "  myProp?: string;" >> index.tsx
+echo "  myMethod?: Function;" >> index.tsx
+echo "}" >> index.tsx
+echo "" >> index.tsx
+echo "class Axa${name}Component extends Component<AllHTMLAttributes<any> & PassedProps, {}> {" >> index.tsx
+echo "  render() {" >> index.tsx
+echo "    const { myProp, myMethod } = this.props;" >> index.tsx
+echo "    return (" >> index.tsx
+echo "" >> index.tsx
+echo "    );" >> index.tsx
+echo "  }" >> index.tsx
+echo "}" >> index.tsx
+echo "" >> index.tsx
+echo "const mapStateToProps = (state: axaStateTypeFor${name}) => ({" >> index.tsx
+echo "  \"myProp\": \"value\"" >> index.tsx
+echo "});" >> index.tsx
+echo "" >> index.tsx
+echo "const mapDispatchToProps = (dispatch: Dispatch) => ({" >> index.tsx
+echo "  \"myMethod\": () => dispatch()" >> index.tsx
+echo "});" >> index.tsx
+echo "" >> index.tsx
+echo "export const Axa${name} = connect(mapStateToProps, mapDispatchToProps)(Axa${name}Component);" >> index.tsx
+
+echo "export type axa${name}StateType = {" >> types.d.ts
+echo "  \"myStateProp\": string" >> types.d.ts
+echo "};" >> types.d.ts
+echo "" >> types.d.ts
+echo "export type axa${name}StateEntryType = {" >> types.d.ts
+echo "  \"axa${name}\": axa${name}StateType" >> types.d.ts
+echo "};" >> types.d.ts
+echo "" >> types.d.ts
+echo "export type axaStateTypeFor${name} = {" >> types.d.ts
+echo "  \"axa${name}\": axa${name}StateType," >> types.d.ts
+echo "  [k: string]: Record<string, any>" >> types.d.ts
+echo "};" >> types.d.ts
+
+echo "import update from \"immutability-helper\";" >> reducer.ts
+echo "import { axa${name}StateType } from \"./types\";" >> reducer.ts
+echo "" >> reducer.ts
+echo "export const AXA_${nameUpper}_ACTION = \"AXA_${nameUpper}_ACTION\";" >> reducer.ts
+echo "" >> reducer.ts
+echo "export const axa${name}Reducer = (" >> reducer.ts
+echo "  state: axa${name}StateType = { \"myStateProp\": \"\" }," >> reducer.ts
+echo "  action: { type: string }" >> reducer.ts
+echo "): axa${name}StateType => {" >> reducer.ts
+echo "  switch (action.type) {" >> reducer.ts
+echo "    case AXA_${nameUpper}_ACTION: {" >> reducer.ts
+echo "      return update(state, {" >> reducer.ts
+echo "        \"myStateProp\": { \"\$set\": \"\" }" >> reducer.ts
+echo "      });" >> reducer.ts
+echo "    }" >> reducer.ts
+echo "" >> reducer.ts
+echo "    default: {" >> reducer.ts
+echo "      return state;" >> reducer.ts
+echo "    }" >> reducer.ts
+echo "  }" >> reducer.ts
+echo "};" >> reducer.ts

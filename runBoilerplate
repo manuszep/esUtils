@@ -1,0 +1,16 @@
+#!/bin/bash
+
+current_dir=$(pwd)
+script_dir="$( cd "$(dirname "$0")" ; pwd -P )"
+
+echo $current_dir
+echo $script_dir
+
+cp "${script_dir}/src/boilerplate/.editorconfig" "${current_dir}"
+cp "${script_dir}/src/boilerplate/.babelrc" "${current_dir}"
+cp "${script_dir}/src/boilerplate/.eslintrc.json" "${current_dir}"
+cp "${script_dir}/src/boilerplate/.sass-lint.yml" "${current_dir}"
+cp "${script_dir}/src/boilerplate/tslint.json" "${current_dir}"
+cp "${script_dir}/src/boilerplate/tsconfig.json" "${current_dir}"
+cp "${script_dir}/src/boilerplate/postcss.config.js" "${current_dir}"
+cp "${script_dir}/src/boilerplate/createComponent" "${current_dir}"
