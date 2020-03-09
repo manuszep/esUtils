@@ -37,9 +37,9 @@ var NeedHelpComponent = /** @class */ (function (_super) {
     NeedHelpComponent.prototype.getWhatsappUrl = function () {
         var lang = this.props.lang;
         if (lang === "FR") {
-            return index_1.getEndPoints().getWhatsappPhone().FR.whatsapp_phone;
+            return index_1.getEndPoints().whatsapp.FR.whatsapp_phone;
         }
-        return index_1.getEndPoints().getWhatsappPhone().NL.whatsapp_phone;
+        return index_1.getEndPoints().whatsapp.NL.whatsapp_phone;
     };
     NeedHelpComponent.prototype.needHelp = function () {
         var fieldsAndValues = { 'CALL_ME': true };
