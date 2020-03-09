@@ -60,9 +60,9 @@ class NeedHelpComponent extends Component<KeyedObject, KeyedObject> {
           tabIndex={0}
           onClick={() => {
             this.props.showModal({
-              "title": <T>EMOTOR_MODAL_HELP_TOOL_TITLE</T>,
-              "body": <T>EMOTOR_MODAL_HELP_TOOL_BODY</T>,
-              "closeLabel": <T>EMOTOR_MODAL_HELP_TOOL_CLOSE</T>
+              "title": <T>MODAL_HELP_TOOL_TITLE</T>,
+              "body": <T>MODAL_HELP_TOOL_BODY</T>,
+              "closeLabel": <T>MODAL_HELP_TOOL_CLOSE</T>
             });
             this.needHelp();
           }
@@ -75,7 +75,7 @@ class NeedHelpComponent extends Component<KeyedObject, KeyedObject> {
               {/* eslint-enable max-len */}
             </svg>
           </a>
-          <T>EMOTOR_PHONE_BUTTON</T>
+          <T>PHONE_BUTTON</T>
         </div>
       );
     }
@@ -88,7 +88,7 @@ class NeedHelpComponent extends Component<KeyedObject, KeyedObject> {
             {/* eslint-enable max-len */}
           </svg>
         </a>
-        <T>EMOTOR_PHONE_BUTTON</T>
+        <T>PHONE_BUTTON</T>
       </div>
     );
   }
@@ -120,7 +120,7 @@ class NeedHelpComponent extends Component<KeyedObject, KeyedObject> {
                     {/* eslint-enable max-len */}
                   </svg>
                 </a>
-                <T>EMOTOR_WHATSAPP_BUTTON</T>
+                <T>WHATSAPP_BUTTON</T>
               </div>
             </div>
           </div>
