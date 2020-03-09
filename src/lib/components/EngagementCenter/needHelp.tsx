@@ -1,18 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
 import moment from "moment";
+import { connect } from "react-redux";
 
 import querystring from "query-string";
 import { Translation as T, getEndPoints, getInitialState, wrapMapStateToProps, KeyedObject } from "../../../index";
 
-class NeedHelp extends Component<KeyedObject, KeyedObject> {
-
-  const mapStateToProps = (state: KeyedObject) => {
-    const commonItems = {
-      "lang": state.pageState.lang
-    };
-    return wrapMapStateToProps(state, commonItems, {});
-  };
+class NeedHelpComponent extends Component<KeyedObject, KeyedObject> {
 
   getWhatsappUrl() {
     const { lang } = this.props;
@@ -136,4 +130,12 @@ class NeedHelp extends Component<KeyedObject, KeyedObject> {
   }
 }
 
-export default NeedHelp;
+const mapStateToProps = (state: KeyedObject) => {
+  const commonItems = {
+    "lang": state.pageState.lang
+  };
+  return wrapMapStateToProps(state, commonItems, {});
+};
+
+
+export const NeedHelp = connect(mapStateToProps)(NeedHelpComponent);
