@@ -12,9 +12,9 @@ class NeedHelpComponent extends Component<KeyedObject, KeyedObject> {
     const { lang } = this.props;
 
     if (lang === "FR") {
-      return getEndPoints().getWhatsappPhone().FR.whatsapp_phone;
+      return getEndPoints().whatsapp.FR.whatsapp_phone;
     }
-    return getEndPoints().getWhatsappPhone().NL.whatsapp_phone;
+    return getEndPoints().whatsapp.NL.whatsapp_phone;
   }
 
   needHelp() {
