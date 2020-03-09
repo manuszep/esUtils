@@ -42,10 +42,12 @@ class NeedHelpComponent extends Component<KeyedObject, KeyedObject> {
     }
 
     if ((dayOfWeek === saturday) && currentTime.isBetween(saturdaydStartTime, saturdayEndTime)) {
+      this.needHelp();
       return true;
     }
 
     if (((dayOfWeek !== sunday) && (dayOfWeek !== saturday)) && currentTime.isBetween(weekStartTime, weekEndTime)) {
+      this.needHelp();
       return true;
     }
 
@@ -64,7 +66,6 @@ class NeedHelpComponent extends Component<KeyedObject, KeyedObject> {
               "body": <T>MODAL_HELP_TOOL_BODY</T>,
               "closeLabel": <T>MODAL_HELP_TOOL_CLOSE</T>
             });
-            this.needHelp();
           }
           }
         >
