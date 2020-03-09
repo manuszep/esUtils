@@ -111,4 +111,4 @@ var mapStateToProps = function (state) {
     };
     return index_1.wrapMapStateToProps(state, commonItems, {});
 };
-exports.NeedHelp = react_redux_1.connect(mapStateToProps)(NeedHelpComponent);
+exports.NeedHelp = react_redux_1.connect(mapStateToProps, null)(NeedHelpComponent);
