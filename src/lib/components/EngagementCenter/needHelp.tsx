@@ -138,4 +138,4 @@ const mapStateToProps = (state: KeyedObject) => {
 };
 
 
-export const NeedHelp = connect(mapStateToProps)(NeedHelpComponent);
+export const NeedHelp = connect(mapStateToProps, null)(NeedHelpComponent);
