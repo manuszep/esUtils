@@ -112,4 +112,10 @@ var mapStateToProps = function (state) {
     };
     return index_1.wrapMapStateToProps(state, commonItems, {});
 };
+var mapDispatchToProps = function (dispatch) { return ({
+    "showModal": function (firstArg, secondArg) {
+        if (secondArg === void 0) { secondArg = {}; }
+        dispatch(index_1.showModal(firstArg, secondArg));
+    }
+}); };
 exports.NeedHelp = react_redux_1.connect(mapStateToProps, null)(NeedHelpComponent);
