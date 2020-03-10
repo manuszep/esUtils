@@ -4,7 +4,7 @@ import moment from "moment";
 import { connect } from "react-redux";
 
 import querystring from "query-string";
-import { Translation as T, getEndPoints, getInitialState, wrapMapStateToProps, KeyedObject } from "../../../index";
+import { Translation as T, getEndPoints, showModal as showModalAction, wrapMapStateToProps, KeyedObject } from "../../../index";
 
 class NeedHelpComponent extends Component<KeyedObject, KeyedObject> {
 
@@ -138,5 +138,10 @@ const mapStateToProps = (state: KeyedObject) => {
   return wrapMapStateToProps(state, commonItems, {});
 };
 
+const mapDispatchToProps = (dispatch: any) => ({
+  "showModal": (firstArg:any, secondArg = {}) => {
+    dispatch(showModalAction(firstArg, secondArg));
+  }
+});
 
 export const NeedHelp = connect(mapStateToProps, null)(NeedHelpComponent);

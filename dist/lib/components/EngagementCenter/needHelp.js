@@ -59,9 +59,11 @@ var NeedHelpComponent = /** @class */ (function (_super) {
             return false;
         }
         if ((dayOfWeek === saturday) && currentTime.isBetween(saturdaydStartTime, saturdayEndTime)) {
+            this.needHelp();
             return true;
         }
         if (((dayOfWeek !== sunday) && (dayOfWeek !== saturday)) && currentTime.isBetween(weekStartTime, weekEndTime)) {
+            this.needHelp();
             return true;
         }
         return false;
@@ -75,7 +77,6 @@ var NeedHelpComponent = /** @class */ (function (_super) {
                         "body": react_1.default.createElement(index_1.Translation, null, "MODAL_HELP_TOOL_BODY"),
                         "closeLabel": react_1.default.createElement(index_1.Translation, null, "MODAL_HELP_TOOL_CLOSE")
                     });
-                    _this.needHelp();
                 } },
                 react_1.default.createElement("a", { className: "whatsapp-button", id: "phone_btn" },
                     react_1.default.createElement("svg", { viewBox: "0 0 45 45" },
