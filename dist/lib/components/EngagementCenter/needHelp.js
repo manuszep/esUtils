@@ -116,4 +116,4 @@ var mapDispatchToProps = function (dispatch) { return ({
         dispatch(index_1.showModal(firstArg, secondArg));
     }
 }); };
-exports.NeedHelp = react_redux_1.connect(mapStateToProps, null)(NeedHelpComponent);
+exports.NeedHelp = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(NeedHelpComponent);
