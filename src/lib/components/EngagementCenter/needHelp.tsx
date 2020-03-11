@@ -142,4 +142,4 @@ const mapDispatchToProps = (dispatch: any) => ({
   }
 });
 
-export const NeedHelp = connect(mapStateToProps, null)(NeedHelpComponent);
+export const NeedHelp = connect(mapStateToProps, mapDispatchToProps)(NeedHelpComponent);
