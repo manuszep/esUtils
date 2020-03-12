@@ -11,7 +11,7 @@ class NeedHelpComponent extends Component<KeyedObject, KeyedObject> {
   getWhatsappUrl() {
     const { lang } = this.props;
 
-    if (lang === "FR") {
+    if (lang.toUpperCase() === "FR") {
       return getEndPoints().whatsapp.FR.whatsapp_phone;
     }
     return getEndPoints().whatsapp.NL.whatsapp_phone;
