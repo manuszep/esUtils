@@ -36,7 +36,7 @@ var NeedHelpComponent = /** @class */ (function (_super) {
     }
     NeedHelpComponent.prototype.getWhatsappUrl = function () {
         var lang = this.props.lang;
-        if (lang === "FR") {
+        if (lang.toUpperCase() === "FR") {
             return index_1.getEndPoints().whatsapp.FR.whatsapp_phone;
         }
         return index_1.getEndPoints().whatsapp.NL.whatsapp_phone;

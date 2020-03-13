@@ -12,6 +12,7 @@ class NeedHelpComponent extends Component<KeyedObject, KeyedObject> {
     const { lang } = this.props;
 
     if (lang.toUpperCase() === "FR") {
+      console.log(getEndPoints());
       return getEndPoints().whatsapp.FR.whatsapp_phone;
     }
     return getEndPoints().whatsapp.NL.whatsapp_phone;
