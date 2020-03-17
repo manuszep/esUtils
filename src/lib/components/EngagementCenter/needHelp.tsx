@@ -12,10 +12,18 @@ class NeedHelpComponent extends Component<KeyedObject, KeyedObject> {
     const { lang } = this.props;
 
     if (lang.toUpperCase() === "FR") {
-      console.log(getEndPoints());
       return getEndPoints().whatsapp.FR.whatsapp_phone;
     }
     return getEndPoints().whatsapp.NL.whatsapp_phone;
+  }
+
+  getPhone() {
+    const { lang } = this.props;
+
+    if (lang.toUpperCase() === "FR") {
+      return getEndPoints().phone.FR.phone;
+    }
+    return getEndPoints().phone.NL.phone;
   }
 
   needHelp() {
@@ -80,7 +88,7 @@ class NeedHelpComponent extends Component<KeyedObject, KeyedObject> {
       );
     }
     return (
-      <a className="whatsapp__container" href="tel:080061213" onClick={() => { this.needHelp(); }}>
+      <a className="whatsapp__container" href={this.getPhone()} onClick={() => { this.needHelp(); }}>
         <a className="whatsapp-button" id="phone_btn">
           <svg viewBox="0 0 45 45" >
             {/* eslint-disable max-len */}
