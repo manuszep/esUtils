@@ -2,6 +2,7 @@ import { Component } from "react";
 import { KeyedObject } from "../../../index";
 declare class NeedHelpComponent extends Component<KeyedObject, KeyedObject> {
     getWhatsappUrl(): any;
+    getPhone(): any;
     needHelp(): void;
     isCallCenterOpen(): Boolean;
     renderNeedHelp(): JSX.Element;
