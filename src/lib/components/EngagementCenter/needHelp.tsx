@@ -83,7 +83,8 @@ class NeedHelpComponent extends Component<KeyedObject, KeyedObject> {
               {/* eslint-enable max-len */}
             </svg>
           </a>
-          <T noprefix={true} >PHONE_BUTTON</T>
+          <T noprefix={true} className="needHelpText_mobile">PHONE_BUTTON</T>
+          <T noprefix={true} className="needHelpText_desktop">PHONE_BUTTON_DESKTOP</T>
         </div>
       );
     }
