@@ -18,7 +18,7 @@ import {
   changeField,
   updateAutoCompleteCities,
   updateAutoCompleteStreets,
-  wrapMapStateToProps,
+  wrapMapStateToProps
 } from "../../../../index";
 
 class AddressFieldComponent extends Component<KeyedObject, KeyedObject> {
@@ -73,9 +73,12 @@ class AddressFieldComponent extends Component<KeyedObject, KeyedObject> {
     if (value && value.length >= 3) {
       // we only want to make a call once every 250ms
       clearTimeout(this.timer);
-      this.timer = setTimeout(() => {
-        updateCities(this.getPostalCode(), value);
-      }, 250);
+      this.timer = setTimeout(
+        () => {
+          updateCities(this.getPostalCode(), value);
+        },
+        250
+      );
     }
   }
 
@@ -86,9 +89,12 @@ class AddressFieldComponent extends Component<KeyedObject, KeyedObject> {
     if (value && value.length >= 3) {
       // we only want to make a call once every 250ms
       clearTimeout(this.timer);
-      this.timer = setTimeout(() => {
-        updateStreets(this.getPostalCode(), this.getCity(), value);
-      }, 250);
+      this.timer = setTimeout(
+        () => {
+          updateStreets(this.getPostalCode(), this.getCity(), value);
+        },
+        250
+      );
     }
   }
 
@@ -110,7 +116,7 @@ class AddressFieldComponent extends Component<KeyedObject, KeyedObject> {
     return valueStreet;
   }
 
-  getOptionsMarkup(optionsData: Array<string | KeyedObject>) {
+  getOptionsMarkup(optionsData: (string | Record<string, any>)[]) {
     const options = optionsData;
     return options.map((option, key) => {
       const opt = (typeof option === "string") ? { "label": option, "value": option } : option;

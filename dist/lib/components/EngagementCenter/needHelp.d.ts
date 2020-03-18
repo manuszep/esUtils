@@ -8,5 +8,5 @@ declare class NeedHelpComponent extends Component<KeyedObject, KeyedObject> {
     renderNeedHelp(): JSX.Element;
     render(): JSX.Element;
 }
-export declare const NeedHelp: import("react-redux").ConnectedComponentClass<typeof NeedHelpComponent, Pick<KeyedObject<any>, never>>;
+export declare const NeedHelp: import("react-redux").ConnectedComponent<typeof NeedHelpComponent, Pick<KeyedObject<any>, never>>;
 export {};

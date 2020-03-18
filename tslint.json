@@ -1,14 +1,7 @@
 {
   "extends": "tslint-config-airbnb",
   "rules": {
-    "import-name": [
-      true,
-      {
-        "react": "React",
-        "immutabilityHelper": "update",
-        "reactAddonsShallowCompare": "shallowCompare"
-      }
-    ],
+    "import-name": false,
     "quotemark": [true, "double", "avoid-escape", "avoid-template"],
     "object-literal-key-quotes": [true, "always"],
     "trailing-comma": [true, {"multiline": "never", "singleline": "never"}],

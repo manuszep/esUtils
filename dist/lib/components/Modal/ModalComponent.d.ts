@@ -19,5 +19,5 @@ declare class ModalComponent extends ReactComponent<ModalComponentPropsType, Mod
     renderModalContent(): JSX.Element | null;
     render(): JSX.Element | null;
 }
-export declare const Modal: import("react-redux").ConnectedComponentClass<typeof ModalComponent, Pick<ModalComponentPropsType, "show" | "modalContentPath" | "afterCloseAction">>;
+export declare const Modal: import("react-redux").ConnectedComponent<typeof ModalComponent, Pick<ModalComponentPropsType, "show" | "modalContentPath" | "afterCloseAction">>;
 export {};

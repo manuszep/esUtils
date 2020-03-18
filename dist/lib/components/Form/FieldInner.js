@@ -103,7 +103,7 @@ var FieldInner = /** @class */ (function (_super) {
             showLabel && (react_1.default.createElement("label", { htmlFor: tagId },
                 react_1.default.createElement(index_1.Translation, { replacements: replacements }, label),
                 labelHelpText)),
-            this.renderFieldTag(TagComponent, addonBefore, addonAfter, inputRef, afterRef, react_1.default.createElement(index_1.FieldTooltip, { help: help }), __assign({}, input, { "id": tagId, "className": inputCls, "type": tagType, "maxLength": maxLength, "placeholder": index_1.getTranslation(placeholder), "label": label, "disabled": disabled, "replacements": replacements }, rest)),
+            this.renderFieldTag(TagComponent, addonBefore, addonAfter, inputRef, afterRef, react_1.default.createElement(index_1.FieldTooltip, { help: help }), __assign(__assign(__assign({}, input), { "id": tagId, "className": inputCls, "type": tagType, "maxLength": maxLength, "placeholder": index_1.getTranslation(placeholder), "label": label, "disabled": disabled, "replacements": replacements }), rest)),
             errorMsg));
     };
     FieldInner.prototype.renderFieldTag = function (Tag, addonBefore, addonAfter, inputRef, afterRef, tooltip, props) {

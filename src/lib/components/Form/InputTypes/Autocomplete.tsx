@@ -3,7 +3,7 @@ import ReactAutocomplete from "react-autocomplete";
 import classNames from "classnames";
 import { connect } from "react-redux";
 
-import { shouldShowIf, KeyedObject, getTranslation } from "../../../../index";
+import { shouldShowIf, getTranslation } from "../../../../index";
 
 const menuStyles = {
   "borderRadius": "3px",
@@ -19,8 +19,8 @@ const menuStyles = {
   "zIndex": "9999"
 };
 
-class AutocompleteComponent extends Component<KeyedObject, KeyedObject> {
-  constructor(props: KeyedObject) {
+class AutocompleteComponent extends Component<Record<string, any>, Record<string, any>> {
+  constructor(props: Record<string, any>) {
     super(props);
     this.state = {
       "value": "",
@@ -95,9 +95,15 @@ class AutocompleteComponent extends Component<KeyedObject, KeyedObject> {
     const sizeLgCls = (typeof sizeLg !== "undefined" && sizeLg !== "") ? `col-lg-${sizeLg}` : "";
     const sizeXlCls = (typeof sizeXl !== "undefined" && sizeXl !== "") ? `col-xl-${sizeXl}` : "";
 
-    const test = classNames(sizeMdCls, sizeLgCls, sizeXlCls, {
-      "col": sizeMd === "" && sizeLg === "" && sizeXlCls === ""
-    }, groupCls);
+    const test = classNames(
+      sizeMdCls,
+      sizeLgCls,
+      sizeXlCls,
+      {
+        "col": sizeMd === "" && sizeLg === "" && sizeXlCls === ""
+      },
+      groupCls
+    );
 
     return (
       <div className={test}>
@@ -105,7 +111,7 @@ class AutocompleteComponent extends Component<KeyedObject, KeyedObject> {
           wrapperProps={{ "className": "form-group" }}
           wrapperStyle={{ "position": "relative" }}
           menuStyle={menuStyles as CSSProperties}
-          getItemValue={item => item.value}
+          getItemValue={(item) => item.value}
           shouldItemRender={shouldItemRender || shouldItemRender}
           items={items}
           value={getValue() || value}
@@ -139,8 +145,11 @@ class AutocompleteComponent extends Component<KeyedObject, KeyedObject> {
   }
 }
 
-const mapStateToProps = (state: KeyedObject) => ({
+const mapStateToProps = (state: Record<string, any>) => ({
   "validationMessages": state.form.app ? state.form.app.syncErrors || [] : []
 });
 
-export const Autocomplete = connect(mapStateToProps, null)(AutocompleteComponent);
+export const Autocomplete = connect<Record<string, any>, null, Record<string, any>>(
+  mapStateToProps,
+  null
+)(AutocompleteComponent);
