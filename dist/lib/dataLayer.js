@@ -1,5 +1,9 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+var react_gtm_module_1 = __importDefault(require("react-gtm-module"));
 var index_1 = require("../index");
 var dataLayerInstance;
 var DataLayer = /** @class */ (function () {
@@ -12,9 +16,13 @@ var DataLayer = /** @class */ (function () {
             "language": window.dataLayerConfig.language,
             "u": gVar.u
         };
+        var tagManagerArgs = {
+            "gtmId": window.gtm_id || "GTM-MC4R35Q",
+            "dataLayer": this.dataLayer
+        };
+        react_gtm_module_1.default.initialize(tagManagerArgs);
         this.isUnique = [];
         this.customMethods = customMethods;
-        this.pushData();
     }
     DataLayer.prototype.addData = function (data) {
         var _this = this;
@@ -22,42 +30,47 @@ var DataLayer = /** @class */ (function () {
             _this.dataLayer[key] = data[key];
         });
     };
-    DataLayer.prototype.pushData = function () {
-        window.dataLayer.push(Object.assign({ 'event': 'ecommerce' }, this.dataLayer));
+    DataLayer.prototype.pushData = function (data) {
+        react_gtm_module_1.default.dataLayer(data);
     };
     DataLayer.prototype.setStep = function (step, state) {
+        var _a;
         if (typeof step !== "undefined" && step !== null) {
-            this.dataLayer[index_1.getAppPrefix() + "_funnel_step"] = step.pageTitle;
-            this.dataLayer[index_1.getAppPrefix() + "_funnel_chapter"] = step.chapter;
+            var customData = {};
+            var standardData = (_a = {},
+                _a[index_1.getAppPrefix() + "_funnel_step"] = step.pageTitle,
+                _a[index_1.getAppPrefix() + "_funnel_chapter"] = step.chapter,
+                _a);
             var method = "setDataFor" + index_1.capitalizeFirstLetter(step.ID);
             if (typeof this.customMethods[method] === "function") {
-                var data = this.customMethods[method](state.form.app.values);
-                this.addData(data);
+                customData = this.customMethods[method](state.form.app.values);
             }
-            this.pushData();
+            this.pushData({ "dataLayer": Object.assign({}, customData, standardData) });
         }
     };
     DataLayer.prototype.triggerConversion = function (state) {
         var appGlobalVar = index_1.getAppGlobalVar();
         if ((typeof appGlobalVar.paymentState !== "undefined" && appGlobalVar.paymentState === "accepted")
             || appGlobalVar.flowCompleted) {
-            window.dataLayer.push({
-                'event': 'ecommerce',
-                'ecommerce': {
-                    'purchase': {
-                        "actionField": {
-                            "id": index_1.getGuid,
-                            "revenue": state.invoice.pricing.firstCashInvoiceTotalPremiumAmount
-                        },
-                        "products": state.invoice.commercialComponents
+            var data = {
+                "events": "ecommerce",
+                "dataLayer": {
+                    "ecommerce": {
+                        "purchase": {
+                            "actionField": {
+                                "id": index_1.getGuid,
+                                "revenue": state.invoice.pricing.firstCashInvoiceTotalPremiumAmount
+                            },
+                            "products": state.invoice.commercialComponents
+                        }
                     }
                 }
-            });
+            };
+            this.pushData(data);
         }
     };
     DataLayer.prototype.setLanguage = function (lang) {
-        this.dataLayer.language = lang.toLowerCase();
-        this.pushData();
+        this.pushData({ "dataLayer": { "language": lang.toLowerCase() } });
     };
     return DataLayer;
 }());

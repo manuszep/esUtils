@@ -6,7 +6,10 @@ declare class DataLayer {
     customMethods: KeyedObject<Function>;
     constructor(customMethods?: KeyedObject<Function>);
     addData(data: KeyedObject): void;
-    pushData(): void;
+    pushData(data: {
+        dataLayer: Record<string, any>;
+        events?: any;
+    }): void;
     setStep(step: Step | undefined | null, state: KeyedObject): void;
     triggerConversion(state: KeyedObject): void;
     setLanguage(lang: string): void;
