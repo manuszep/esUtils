@@ -1,5 +1,5 @@
-import { Step, Steps } from "./types";
-export declare const initSteps: (steps: Steps) => void;
+import { Step } from "./types";
+export declare const initSteps: (steps: Step[]) => void;
 export declare const getStepByIndex: (index: number) => Step;
 export declare const getStepById: (id: string) => Step | undefined;
 export declare const getNextStep: (step: string | Step | undefined) => Step | null;

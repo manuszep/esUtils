@@ -6,5 +6,5 @@ declare class BtnZoneComponent extends Component<KeyedObject, KeyedObject> {
     componentDidUpdate(prevProps: KeyedObject): void;
     render(): JSX.Element;
 }
-export declare const BtnZone: import("react-redux").ConnectedComponent<typeof BtnZoneComponent, Pick<KeyedObject<any>, string | number> & KeyedObject<any>>;
+export declare const BtnZone: import("react-redux").ConnectedComponentClass<typeof BtnZoneComponent, Pick<KeyedObject<any>, string | number> & KeyedObject<any>>;
 export {};

@@ -15,5 +15,5 @@ export declare type CheckBoxPropsType = {
 declare class CheckBoxComponent extends Component<CheckBoxPropsType, {}> {
     render(): JSX.Element;
 }
-export declare const CheckBox: import("react-redux").ConnectedComponent<typeof CheckBoxComponent, Pick<CheckBoxPropsType, "label" | "onChange" | "name" | "onClick" | "valueOn" | "valueOff" | "fldValue" | "replacements" | "changeField" | "noprefix"> & KeyedObject<any>>;
+export declare const CheckBox: import("react-redux").ConnectedComponentClass<typeof CheckBoxComponent, Pick<CheckBoxPropsType, "label" | "onChange" | "name" | "onClick" | "valueOn" | "valueOff" | "fldValue" | "replacements" | "changeField" | "noprefix"> & KeyedObject<any>>;
 export {};

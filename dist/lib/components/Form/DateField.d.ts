@@ -23,11 +23,11 @@ declare class DateFieldComponent extends Component<DateFieldPropsType, {}> {
     componentWillUnmount(): void;
     getDisableDayFn(): (d: Date) => boolean;
     getCalendarTranslation(): {
-        previousMonth: string;
-        nextMonth: string;
-        months: string[];
-        weekdays: string[];
-        weekdaysShort: string[];
+        'previousMonth': string;
+        'nextMonth': string;
+        'months': string[];
+        'weekdays': string[];
+        'weekdaysShort': string[];
     };
     allowOnlyFutureDates(d: Date): boolean;
     isZoneFull(pos: number, val: string): boolean;
@@ -36,5 +36,5 @@ declare class DateFieldComponent extends Component<DateFieldPropsType, {}> {
     handleKeydown(e: KeyboardEvent): void;
     render(): JSX.Element;
 }
-export declare const DateField: import("react-redux").ConnectedComponent<typeof DateFieldComponent, Pick<DateFieldPropsType, "name" | "onSelect" | "fldValue" | "changeField" | "datePicker" | "minDate" | "maxDate" | "isDayBlocked"> & KeyedObject<any>>;
+export declare const DateField: import("react-redux").ConnectedComponentClass<typeof DateFieldComponent, Pick<DateFieldPropsType, "name" | "onSelect" | "fldValue" | "changeField" | "datePicker" | "minDate" | "maxDate" | "isDayBlocked"> & KeyedObject<any>>;
 export default DateField;

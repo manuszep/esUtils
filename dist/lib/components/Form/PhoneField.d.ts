@@ -33,5 +33,5 @@ declare class PhoneFieldComponent extends Component<PhoneFieldPropsType, KeyedOb
     updatePhoneNumber(e: any): void;
     render(): JSX.Element;
 }
-export declare const PhoneField: import("react-redux").ConnectedComponent<typeof PhoneFieldComponent, Pick<PhoneFieldPropsType, "label" | "help" | "onChange" | "name" | "lang" | "fieldSubmitted" | "prefixFieldValue" | "numberFieldErrorMsg" | "fullFieldErrorMsg" | "lineNumberTouched" | "addPrefixToPhone" | "numberFieldValue"> & KeyedObject<any>>;
+export declare const PhoneField: import("react-redux").ConnectedComponentClass<typeof PhoneFieldComponent, Pick<PhoneFieldPropsType, "label" | "help" | "onChange" | "name" | "lang" | "fieldSubmitted" | "prefixFieldValue" | "numberFieldErrorMsg" | "fullFieldErrorMsg" | "lineNumberTouched" | "addPrefixToPhone" | "numberFieldValue"> & KeyedObject<any>>;
 export {};
