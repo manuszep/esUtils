@@ -11,5 +11,5 @@ declare class DltComponent extends Component<KeyedObject, KeyedObject> {
     handleCityGeocodingResults(results: KeyedObject[], status: string): void;
     render(): JSX.Element;
 }
-export declare const Dlt: import("react-redux").ConnectedComponentClass<typeof DltComponent, Pick<KeyedObject<any>, never>>;
+export declare const Dlt: import("react-redux").ConnectedComponent<typeof DltComponent, Pick<KeyedObject<any>, never>>;
 export {};

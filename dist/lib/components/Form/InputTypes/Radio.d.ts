@@ -14,5 +14,5 @@ export declare type RadioPropsType = {
 declare class RadioComponent extends Component<RadioPropsType, {}> {
     render(): JSX.Element;
 }
-export declare const Radio: import("react-redux").ConnectedComponentClass<typeof RadioComponent, Pick<RadioPropsType, "label" | "onChange" | "name" | "onClick" | "fldValue" | "changeField" | "noprefix" | "optionValue" | "customClass"> & KeyedObject<any>>;
+export declare const Radio: import("react-redux").ConnectedComponent<typeof RadioComponent, Pick<RadioPropsType, "label" | "onChange" | "name" | "onClick" | "fldValue" | "changeField" | "noprefix" | "optionValue" | "customClass"> & KeyedObject<any>>;
 export {};

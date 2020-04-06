@@ -8,5 +8,5 @@ declare class AutocompleteComponent extends Component<Record<string, any>, Recor
     fieldHasError(field: string): true | null;
     render(): JSX.Element;
 }
-export declare const Autocomplete: import("react-redux").ConnectedComponentClass<typeof AutocompleteComponent, Pick<Record<string, any>, never> & Record<string, any>>;
+export declare const Autocomplete: import("react-redux").ConnectedComponent<typeof AutocompleteComponent, Pick<Record<string, any>, never> & Record<string, any>>;
 export {};

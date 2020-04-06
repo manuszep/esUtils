@@ -18,5 +18,5 @@ export declare type TogglePropsType = {
 declare class ToggleComponent extends Component<TogglePropsType, {}> {
     render(): JSX.Element;
 }
-export declare const Toggle: import("react-redux").ConnectedComponentClass<typeof ToggleComponent, Pick<TogglePropsType, "small" | "label" | "onChange" | "name" | "onClick" | "valueOn" | "valueOff" | "fldValue" | "replacements" | "changeField" | "customClass" | "labelOn" | "labelOff"> & KeyedObject<any>>;
+export declare const Toggle: import("react-redux").ConnectedComponent<typeof ToggleComponent, Pick<TogglePropsType, "small" | "label" | "onChange" | "name" | "onClick" | "valueOn" | "valueOff" | "fldValue" | "replacements" | "changeField" | "customClass" | "labelOn" | "labelOff"> & KeyedObject<any>>;
 export {};

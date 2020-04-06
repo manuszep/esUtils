@@ -4,12 +4,12 @@ declare class AddressFieldComponent extends Component<KeyedObject, KeyedObject> 
     timer: any;
     static getFieldsNames(name: string): string[];
     static getFieldsNamesDictionary(name: string): {
-        "street": string;
-        "streetNr": string;
-        "boxNr": string;
-        "postalCode": string;
-        "city": string;
-        "streetId": string;
+        street: string;
+        streetNr: string;
+        boxNr: string;
+        postalCode: string;
+        city: string;
+        streetId: string;
     };
     constructor(props: KeyedObject);
     componentDidMount(): void;
@@ -27,5 +27,5 @@ declare class AddressFieldComponent extends Component<KeyedObject, KeyedObject> 
     handleNumberKeyPress(e: KeyboardEvent): void;
     render(): JSX.Element;
 }
-export declare const AddressField: import("react-redux").ConnectedComponentClass<typeof AddressFieldComponent, Pick<KeyedObject<any>, never> & KeyedObject<any>>;
+export declare const AddressField: import("react-redux").ConnectedComponent<typeof AddressFieldComponent, Pick<KeyedObject<any>, never> & KeyedObject<any>>;
 export {};
