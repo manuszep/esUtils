@@ -37,6 +37,12 @@ exports.getTranslationFromLabelDictionary = function (key, labelDictionary, nopr
     if (typeof key !== "string")
         return key;
     var fullKey = "" + prefix + key;
+    if (typeof window.debugTranslationLabels !== "undefined" && window.debugTranslationLabels === "true") {
+        // eslint-disable-next-line no-console
+        console.log("Translation Label: " + key);
+        // eslint-disable-next-line no-console
+        console.log("Translation Label: " + fullKey);
+    }
     try {
         return (key && typeof labelDictionary[fullKey] !== "undefined")
             ? labelDictionary[fullKey]
