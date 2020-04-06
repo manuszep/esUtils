@@ -47,6 +47,13 @@ export const getTranslationFromLabelDictionary = (key: any, labelDictionary: Key
 
   const fullKey = `${prefix}${key}`;
 
+  if (typeof window.debugTranslationLabels !== "undefined" && window.debugTranslationLabels === "true") {
+    // eslint-disable-next-line no-console
+    console.log(`Translation Label: ${key}`);
+    // eslint-disable-next-line no-console
+    console.log(`Translation Label: ${fullKey}`);
+  }
+
   try {
     return (key && typeof labelDictionary[fullKey] !== "undefined")
       ? labelDictionary[fullKey]
