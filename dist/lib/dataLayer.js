@@ -10,26 +10,19 @@ var DataLayer = /** @class */ (function () {
     function DataLayer(customMethods) {
         if (customMethods === void 0) { customMethods = {}; }
         var gVar = index_1.getAppGlobalVar();
-        this.dataLayer = {
-            "flow": index_1.getAppPrefix(),
-            "env_work": window.dataLayerConfig.env_work,
-            "language": window.dataLayerConfig.language,
-            "u": gVar.u
-        };
         var tagManagerArgs = {
             "gtmId": window.gtm_id || "GTM-MC4R35Q",
-            "dataLayer": this.dataLayer
+            "dataLayer": {
+                "flow": index_1.getAppPrefix(),
+                "env_work": window.dataLayerConfig.env_work,
+                "language": window.dataLayerConfig.language,
+                "u": gVar.u
+            }
         };
         react_gtm_module_1.default.initialize(tagManagerArgs);
         this.isUnique = [];
         this.customMethods = customMethods;
     }
-    DataLayer.prototype.addData = function (data) {
-        var _this = this;
-        Object.keys(data).forEach(function (key) {
-            _this.dataLayer[key] = data[key];
-        });
-    };
     DataLayer.prototype.pushData = function (data) {
         react_gtm_module_1.default.dataLayer(data);
     };
@@ -37,7 +30,9 @@ var DataLayer = /** @class */ (function () {
         var _a;
         if (typeof step !== "undefined" && step !== null) {
             var customData = {};
-            var standardData = (_a = {},
+            var standardData = (_a = {
+                    "event": "stepChange"
+                },
                 _a[index_1.getAppPrefix() + "_funnel_step"] = step.pageTitle,
                 _a[index_1.getAppPrefix() + "_funnel_chapter"] = step.chapter,
                 _a);
@@ -89,7 +84,7 @@ exports.dataLayerMiddleware = function (_a) {
         if (action.type === "SWITCH_LANG") {
             dataLayerInstance.setLanguage(action.lang);
         }
-        if (action.type === "GOTO_NEXT_STEP") {
+        if (action.type === "GOTO_NEXT_STEP" || action.type === "GOTO_STEP" || action.type === "GOTO_PREVIOUS_STEP") {
             dataLayerInstance.setStep(currentStep, state);
         }
         if (action.type === "REFRESH_OGONE_DATA_FIELDS") {

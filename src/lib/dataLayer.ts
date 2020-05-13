@@ -8,42 +8,32 @@ import {
   getAppPrefix,
   KeyedObject,
   getStepById,
-  getNextStep,
   Step
 } from "../index";
 
 let dataLayerInstance: DataLayer;
 
 class DataLayer {
-  dataLayer: KeyedObject;
   isUnique: [];
   customMethods: KeyedObject<Function>;
 
   constructor(customMethods: KeyedObject<Function> = {}) {
     const gVar = getAppGlobalVar();
 
-    this.dataLayer = {
-      "flow": getAppPrefix(),
-      "env_work": window.dataLayerConfig.env_work,
-      "language": window.dataLayerConfig.language,
-      "u": gVar.u
-    };
-
     const tagManagerArgs = {
       "gtmId": window.gtm_id || "GTM-MC4R35Q",
-      "dataLayer": this.dataLayer
+      "dataLayer": {
+        "flow": getAppPrefix(),
+        "env_work": window.dataLayerConfig.env_work,
+        "language": window.dataLayerConfig.language,
+        "u": gVar.u
+      }
     };
 
     reactGtmModule.initialize(tagManagerArgs);
 
     this.isUnique = [];
     this.customMethods = customMethods;
-  }
-
-  addData(data: KeyedObject): void {
-    Object.keys(data).forEach((key) => {
-      this.dataLayer[key] = data[key];
-    });
   }
 
   pushData(data: { dataLayer: Record<string, any>, events?: any }): void {
@@ -54,6 +44,7 @@ class DataLayer {
     if (typeof step !== "undefined" && step !== null) {
       let customData = {};
       const standardData = {
+        "event": "stepChange",
         [`${getAppPrefix()}_funnel_step`]: step.pageTitle,
         [`${getAppPrefix()}_funnel_chapter`]: step.chapter
       };
@@ -115,7 +106,7 @@ export const dataLayerMiddleware: Middleware = ({ getState }: MiddlewareAPI) => 
       dataLayerInstance.setLanguage(action.lang);
     }
 
-    if (action.type === "GOTO_NEXT_STEP") {
+    if (action.type === "GOTO_NEXT_STEP" || action.type === "GOTO_STEP" || action.type === "GOTO_PREVIOUS_STEP") {
       dataLayerInstance.setStep(currentStep, state);
     }
 
